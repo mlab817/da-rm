@@ -16,7 +16,6 @@ class CreateReportsTable extends Migration
         Schema::create('reports', function (Blueprint $table) {
             $table->id();
             $table->foreignId('office_id');
-            $table->foreignId('report_period_id')->constrained('report_periods');
             $table->text('participants_involved')->nullable();
             $table->text('activities_done')->nullable();
             $table->text('activities_ongoing')->nullable();
