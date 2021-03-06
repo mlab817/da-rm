@@ -15,7 +15,7 @@ class CreateReportPeriodsTable extends Migration
     {
         Schema::create('report_periods', function (Blueprint $table) {
             $table->id();
-            $table->string('name', 10);
+            $table->string('name', 20);
             $table->timestamps();
         });
     }
