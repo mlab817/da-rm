@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Livewire\Commodities;
+use App\Http\Livewire\Focals;
 use App\Http\Livewire\Offices;
 use App\Http\Livewire\Reports;
 use Illuminate\Support\Facades\Route;
@@ -20,6 +21,9 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
 
-Route::get('/offices', Offices::class)->name('offices');
-Route::get('/commodities', Commodities::class)->name('commodities');
-Route::get('/reports', Reports::class)->name('reports');
+Route::group(['prefix' => '/','middleware'=>'auth:sanctum'], function() {
+    Route::get('offices', Offices::class)->name('offices');
+    Route::get('focals', Focals::class)->name('focals');
+    Route::get('commodities', Commodities::class)->name('commodities');
+    Route::get('reports', Reports::class)->name('reports');
+});

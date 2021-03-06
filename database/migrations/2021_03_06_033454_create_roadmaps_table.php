@@ -16,10 +16,15 @@ class CreateRoadmapsTable extends Migration
         Schema::create('roadmaps', function (Blueprint $table) {
             $table->id();
             $table->foreignId('commodity_id')->constrained('commodities');
-            $table->foreignId('report_period_id')->constrained('report_periods');
-            $table->string('name');
-            $table->foreignId('upload_id');
-            $table->foreignId('user_id')->nullable()->constrained('users')->onDelete('set null');
+            $table->foreignId('report_id')->constrained('reports');
+            $table->string('start_date', 50)->nullable();
+            $table->text('participants_involved')->nullable();
+            $table->text('activities_done')->nullable();
+            $table->text('activities_ongoing')->nullable();
+            $table->text('overall_status')->nullable();
+            $table->date('report_date')->nullable();
+            $table->foreignId('upload_id')->nullable()->constrained('uploads')->nullOnDelete();
+            $table->foreignId('user_id')->nullable()->constrained('users')->nullOnDelete();
             $table->timestamps();
         });
     }

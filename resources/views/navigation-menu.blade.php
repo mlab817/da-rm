@@ -18,6 +18,9 @@
                     <x-jet-nav-link href="{{ route('offices') }}" :active="request()->routeIs('offices')">
                         {{ __('Offices') }}
                     </x-jet-nav-link>
+                    <x-jet-nav-link href="{{ route('focals') }}" :active="request()->routeIs('focals')">
+                        {{ __('Focals') }}
+                    </x-jet-nav-link>
                     <x-jet-nav-link href="{{ route('commodities') }}" :active="request()->routeIs('commodities')">
                         {{ __('Commodities') }}
                     </x-jet-nav-link>
@@ -152,6 +155,9 @@
             </x-jet-responsive-nav-link>
             <x-jet-responsive-nav-link href="{{ route('offices') }}" :active="request()->routeIs('offices')">
                 {{ __('Offices') }}
+            </x-jet-responsive-nav-link>
+            <x-jet-responsive-nav-link href="{{ route('focals') }}" :active="request()->routeIs('focals')">
+                {{ __('Focals') }}
             </x-jet-responsive-nav-link>
             <x-jet-responsive-nav-link href="{{ route('commodities') }}" :active="request()->routeIs('commodities')">
                 {{ __('Commodities') }}
