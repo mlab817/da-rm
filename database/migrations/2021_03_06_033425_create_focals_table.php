@@ -1,0 +1,41 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+class CreateFocalsTable extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('focals', function (Blueprint $table) {
+            $table->id();
+            $table->enum('status',['permanent','alternate'])->nullable();
+            $table->foreignId('commodity_id')->nullable()->constrained('commodities')->onDelete('set null');
+            $table->string('name', 30);
+            $table->string('designation', 30)->nullable();
+            $table->string('email', 30)->nullable();
+            $table->foreignId('office_id')->nullable()->constrained('offices')->onDelete('set null');
+            $table->string('telephone_number', 50)->nullable();
+            $table->string('fax_number', 50)->nullable();
+            $table->string('mobile_number', 50)->nullable();
+            $table->string('viber_number', 50)->nullable();
+            $table->timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists('focals');
+    }
+}
