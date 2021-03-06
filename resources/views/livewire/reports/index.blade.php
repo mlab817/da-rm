@@ -50,8 +50,12 @@
                         <td class="border px-4 py-2">{{ $report->user ? $report->user->email : '' }}</td>
                         <td class="border px-4 py-2">{{ $report->upload_id }}</td>
                         <td class="border px-4 py-2">
-                            <button wire:click="edit({{ $report->id }})" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Edit</button>
-                            <button wire:click="delete({{ $report->id }})" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">Delete</button>
+                            <x-jet-button wire:click="edit({{ $report->id }})">
+                                Edit
+                            </x-jet-button>
+                            <x-jet-danger-button wire:click="delete({{ $report->id }})">
+                                Delete
+                            </x-jet-danger-button>
                         </td>
                     </tr>
                 @endforeach
