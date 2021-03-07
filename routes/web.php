@@ -32,4 +32,7 @@ Route::group(['prefix' => '/','middleware'=>'auth:sanctum'], function() {
     Route::get('/reports/create', Reports\CreateReport::class)->name('reports.create');
     Route::get('/reports/{id}', Reports\ShowReport::class)->name('reports.show');
     Route::get('reports', Reports::class)->name('reports');
+
+    Route::get('/roadmaps/create', \App\Http\Livewire\Roadmaps\Create::class)->name('roadmaps.index');
+    Route::get('/roadmaps', \App\Http\Livewire\Roadmaps\Index::class)->name('roadmaps.index');
 });

@@ -6,6 +6,7 @@ use App\Models\Commodity;
 use App\Models\Office;
 use App\Models\Report;
 use App\Models\ReportPeriod;
+use App\Models\Roadmap;
 use App\Models\Upload;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
@@ -62,7 +63,7 @@ class CreateReport extends Component
         $validatedData = $this->validate();
         $validatedData['user_id'] = Auth::id();
 
-        $report = Report::create($validatedData);
+        $roadmap = Roadmap::create($validatedData);
 
         // create report then upload file
         $upload = $this->file->storePublicly('roadmaps');
@@ -70,19 +71,19 @@ class CreateReport extends Component
         // create upload record
         if ($upload) {
             $newUpload = Upload::create([
-                'upload_type_id'    => 2,
-                'title'             => $report->commodity->name,
-                'url'               => $upload,
-                'user_id'           => Auth::id(),
+                'upload_type_id' => 2,
+                'title' => $roadmap->commodity->name,
+                'url' => $upload,
+                'user_id' => Auth::id(),
             ]);
 
             if ($newUpload) {
-                $report->upload_id = $newUpload->id;
-                $report->saveQuietly();
+                $roadmap->upload_id = $newUpload->id;
+                $roadmap->saveQuietly();
             }
         }
 
-        return redirect()->route('reports.show', $report->id);
+        return redirect()->route('reports.show', $roadmap->id);
     }
 
     public function resetInputFields()
