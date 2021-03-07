@@ -22,8 +22,14 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 })->name('dashboard');
 
 Route::group(['prefix' => '/','middleware'=>'auth:sanctum'], function() {
+    Route::get('', function() {
+        return view('welcome');
+    })->name('welcome');
     Route::get('offices', Offices::class)->name('offices');
     Route::get('focals', Focals::class)->name('focals');
     Route::get('commodities', Commodities::class)->name('commodities');
+
+    Route::get('/reports/create', Reports\CreateReport::class)->name('reports.create');
+    Route::get('/reports/{id}', Reports\ShowReport::class)->name('reports.show');
     Route::get('reports', Reports::class)->name('reports');
 });

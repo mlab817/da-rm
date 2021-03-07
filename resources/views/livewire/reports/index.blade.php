@@ -16,51 +16,89 @@
                     </div>
                 </div>
             @endif
-            <button wire:click="create()" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded my-3">Add Report</button>
+            <button
+                wire:click="create()"
+                class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded my-3">
+                Add Report
+            </button>
+            <input class="appearance-none border rounded w-full my-2 py-4 px-4 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="exampleFormControlInput2" wire:model="search" placeholder="Search"></input>
             @if($isOpen)
                 @include('livewire.reports.create')
             @endif
-            <table class="table-fixed w-full">
+            <table class="min-w-full divide-y divide-gray-200">
                 <thead>
                 <tr class="bg-gray-100">
-                    <th class="px-4 py-2">Office</th>
-                    <th class="px-4 py-2">Commodity</th>
-                    <th class="px-4 py-2">Start Date</th>
-                    <th class="px-4 py-2">Participants Involved</th>
-                    <th class="px-4 py-2">Activities Done</th>
-                    <th class="px-4 py-2">Activities Ongoing</th>
-                    <th class="px-4 py-2">Overall Status</th>
-                    <th class="px-4 py-2">Report Date</th>
-                    <th class="px-4 py-2">Updated By</th>
-                    <th class="px-4 py-2">Attachment</th>
-                    <th class="px-4 py-2">Action</th>
+                    <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">No.</th>
+                    <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">Office</th>
+                    <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">Commodity</th>
+                    <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">Start Date</th>
+                    <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">Overall Status</th>
+                    <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">Report Date</th>
+                    <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">Updated By</th>
+                    <th scope="col" class="relative px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">Action</th>
                 </tr>
                 </thead>
-                <tbody>
-                @foreach($reports as $report)
+                <tbody class="bg-white divide-y divide-gray-200">
+                @forelse($reports as $report)
                     <tr>
-                        <td class="border px-4 py-2">{{ $report->office ? $report->office->short_name : '' }}</td>
-                        <td class="border px-4 py-2">{{ $report->commodity ? $report->commodity->name : '' }}</td>
-                        <td class="border px-4 py-2">{{ $report->start_date }}</td>
-                        <td class="border px-4 py-2">{{ $report->participants_involved }}</td>
-                        <td class="border px-4 py-2">{{ $report->activities_done }}</td>
-                        <td class="border px-4 py-2">{{ $report->activities_ongoing }}</td>
-                        <td class="border px-4 py-2">{{ $report->overall_status }}</td>
-                        <td class="border px-4 py-2">{{ $report->report_date->format('Y-m-d') }}</td>
-                        <td class="border px-4 py-2">{{ $report->user ? $report->user->email : '' }}</td>
-                        <td class="border px-4 py-2">{{ $report->upload_id }}</td>
-                        <td class="border px-4 py-2">
+                        <td class="px-6 py-4 whitespace-nowrap text-sm">
+                            {{ $report->id }}
+                        </td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm">
+                            {{ $report->office ? $report->office->short_name : '' }}
+                        </td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm">
+                            {{ $report->commodity ? $report->commodity->name : '' }}
+                        </td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm">
+                            {{ $report->start_date }}
+                        </td>
+                        <td class="px-6 py-4 text-sm">
+                            {{ $report->overall_status }}
+                        </td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm">
+                            {{ $report->report_date->format('Y-m-d') }}
+                        </td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm">
+                            {{ $report->user ? $report->user->email : '' }}
+                        </td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm">
                             <x-jet-button wire:click="edit({{ $report->id }})">
                                 Edit
                             </x-jet-button>
-                            <x-jet-danger-button wire:click="delete({{ $report->id }})">
+                            <x-jet-danger-button wire:click="confirmDelete({{ $report->id }})">
                                 Delete
                             </x-jet-danger-button>
                         </td>
                     </tr>
-                @endforeach
+                @empty
+                    <tr>
+                        <td colspan="8" class="text-sm whitespace-nowrap">No reports found.</td>
+                    </tr>
+                @endforelse
                 </tbody>
             </table>
+            {{ $reports->links() }}
         </div>
     </div>
+
+{{--    <x-jet-confirmation-modal wire:model="confirmDeleteDialog">--}}
+{{--        <x-slot name="title">--}}
+{{--            Delete--}}
+{{--        </x-slot>--}}
+
+{{--        <x-slot name="content">--}}
+{{--            Are you sure you want to delete your account? Once your account is deleted, all of its resources and data will be permanently deleted.--}}
+{{--        </x-slot>--}}
+
+{{--        <x-slot name="footer">--}}
+{{--            <x-jet-secondary-button wire:click="$toggle('confirmDeleteDialog')" wire:loading.attr="disabled">--}}
+{{--                Never mind--}}
+{{--            </x-jet-secondary-button>--}}
+
+{{--            <x-jet-danger-button class="ml-2" wire:click="delete()" wire:loading.attr="disabled">--}}
+{{--                Delete Account--}}
+{{--            </x-jet-danger-button>--}}
+{{--        </x-slot>--}}
+{{--    </x-jet-confirmation-modal>--}}
 </div>
