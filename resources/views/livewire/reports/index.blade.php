@@ -16,27 +16,35 @@
                     </div>
                 </div>
             @endif
-            <button
-                wire:click="create()"
-                class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded my-3">
-                Add Report
-            </button>
+            <div class="my-3">
+                <a
+                    href="{{ route('reports.create')  }}"
+                    class="inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:shadow-outline-gray disabled:opacity-25 transition ease-in-out duration-150">
+                    Create Report
+                </a>
+                <select class="inline-flex focus:ring-indigo-500 focus:border-indigo-500 text-uppercase rounded sm:text-sm border-gray-300" wire:model="report_period_id">
+                    <option value="">Select Report Period</option>
+                    @foreach($report_periods as $item)
+                        <option value="{{ $item->id }}">{{ $item->name }}</option>
+                    @endforeach
+                </select>
+            </div>
             <input class="appearance-none border rounded w-full my-2 py-4 px-4 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="exampleFormControlInput2" wire:model="search" placeholder="Search"></input>
             @if($isOpen)
                 @include('livewire.reports.create')
             @endif
             <table class="min-w-full divide-y divide-gray-200">
                 <thead>
-                <tr class="bg-gray-100">
-                    <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">No.</th>
-                    <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">Office</th>
-                    <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">Commodity</th>
-                    <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">Start Date</th>
-                    <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">Overall Status</th>
-                    <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">Report Date</th>
-                    <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">Updated By</th>
-                    <th scope="col" class="relative px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">Action</th>
-                </tr>
+                    <tr class="bg-gray-100">
+                        <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">No.</th>
+                        <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">Office</th>
+                        <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">Commodity</th>
+                        <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">Start Date</th>
+                        <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">Overall Status</th>
+                        <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">Report Date</th>
+                        <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">Updated By</th>
+                        <th scope="col" class="relative px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">Action</th>
+                    </tr>
                 </thead>
                 <tbody class="bg-white divide-y divide-gray-200">
                 @forelse($reports as $report)
@@ -73,7 +81,7 @@
                     </tr>
                 @empty
                     <tr>
-                        <td colspan="8" class="text-sm whitespace-nowrap">No reports found.</td>
+                        <td colspan="8" class="px-3 py-3 text-center text-sm whitespace-nowrap">No reports found.</td>
                     </tr>
                 @endforelse
                 </tbody>

@@ -21,18 +21,19 @@ class Reports extends Component
     use WithPagination;
     use WithModal;
 
-    public  $report_id,
-            $office_id,
-            $commodity_id,
-            $start_date,
-            $participants_involved,
-            $activities_done,
-            $activities_ongoing,
-            $overall_status,
-            $report_date,
-            $report_period_id,
-            $user_id,
-            $upload_id;
+    public  $report_id;
+//            $office_id,
+//            $commodity_id,
+//            $start_date,
+//            $participants_involved,
+//            $activities_done,
+//            $activities_ongoing,
+//            $overall_status,
+//            $report_date,
+
+    public $report_period_id;
+//            $user_id,
+//            $upload_id;
 
     public $offices;
 
@@ -52,95 +53,11 @@ class Reports extends Component
         $this->commodities = Commodity::select('id','name')->get();
         $this->report_periods = ReportPeriod::select('id','name')->get();
 
-        $reports = $this->search ? Report::search($this->search)->paginate(10) : Report::paginate(10);
+        $reports = $this->search ? Report::where('report_period_id', $this->report_period_id)->search($this->search)->paginate(10) : Report::where('report_period_id', $this->report_period_id)->paginate(10);
 
         return view('livewire.reports.index',[
             'reports' => $reports,
         ]);
-    }
-
-    public function resetInputFields()
-    {
-        $this->report_id = '';
-        $this->office_id = '';
-        $this->start_date = '';
-        $this->commodity_id = '';
-        $this->participants_involved = '';
-        $this->activities_done = '';
-        $this->activities_ongoing = '';
-        $this->overall_status = '';
-        $this->report_date = '';
-        $this->report_period_id = '';
-        $this->file = '';
-//        $this->user_id = '';
-//        $this->upload_id = '';
-    }
-
-    public function create()
-    {
-        $this->resetInputFields();
-        $this->openModal();
-    }
-
-    public function store()
-    {
-        $this->validate([
-            'office_id'             => 'required',
-            'commodity_id'          => 'required',
-            'start_date'            => 'required',
-            'participants_involved' => 'required',
-            'activities_done'       => 'required',
-            'activities_ongoing'    => 'required',
-            'overall_status'        => 'required',
-            'report_date'           => 'required',
-            'report_period_id'      => 'required',
-            'file'                  => 'required'
-        ]);
-
-        $uploadedFile = $this->upload($this->file);
-
-        if ($uploadedFile) {
-            Report::updateOrCreate([
-                'id' => $this->report_id
-            ],[
-                'office_id'             => $this->office_id,
-                'commodity_id'          => $this->commodity_id,
-                'start_date'            => $this->start_date,
-                'participants_involved' => $this->participants_involved,
-                'activities_done'       => $this->activities_done,
-                'activities_ongoing'    => $this->activities_ongoing,
-                'overall_status'        => $this->overall_status,
-                'report_date'           => $this->report_date,
-                'report_period_id'      => $this->report_period_id,
-                'user_id'               => Auth::id(),
-                'upload_id'             => $uploadedFile->id,
-            ]);
-        }
-
-        session()->flash('message',
-            $this->report_id ? 'Successfully updated report' : 'Successfully created report'
-        );
-
-        $this->closeModal();
-    }
-
-    public function edit($id)
-    {
-        $report = Report::findOrFail($id);
-
-        $this->report_id = $id;
-        $this->office_id = $report->office_id;
-        $this->start_date = $report->start_date;
-        $this->commodity_id = $report->commodity_id;
-        $this->participants_involved = $report->participants_involved;
-        $this->activities_done = $report->activities_done;
-        $this->activities_ongoing = $report->activities_ongoing;
-        $this->overall_status = $report->overall_status;
-        $this->report_date = $report->report_date;
-        $this->report_period_id = $report->report_period_id;
-        $this->file = '';
-
-        $this->openModal();
     }
 
     public function confirmDelete($id)
@@ -157,22 +74,6 @@ class Reports extends Component
         $this->confirmDeleteDialog = false;
 
         session()->flash('message', 'Successfully deleted report');
-    }
-
-    public function upload($file)
-    {
-        $uploadedFile = $file->storePublicly('roadmaps');
-
-        if ($uploadedFile) {
-            return Upload::create([
-                'upload_type_id' => 2,
-                'title' => 'Roadmap',
-                'url' => $uploadedFile,
-                'user_id' => Auth::id(),
-            ]);
-        } else {
-            return null;
-        }
     }
 
     public function download($id): BinaryFileResponse

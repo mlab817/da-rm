@@ -211,8 +211,8 @@
         <div class="bg-gray-50 px-4 py-3 rounded-b-lg sm:flex sm:flex-row-reverse">
             <x-jet-button class="ml-2" wire:click.prevent="store()">Submit</x-jet-button>
 
-            <x-jet-secondary-button wire:click.prevent="closeModal()" wire:loading.attr="disabled">
-                Cancel
+            <x-jet-secondary-button wire:click.prevent="resetInputFields()" wire:loading.attr="disabled">
+                Reset
             </x-jet-secondary-button>
         </div>
     </div>

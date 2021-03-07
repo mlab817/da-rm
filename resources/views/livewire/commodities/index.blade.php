@@ -20,24 +20,24 @@
             @if($isOpen)
                 @include('livewire.commodities.create')
             @endif
-            <table class="table-fixed w-full">
+            <table class="table-fixed min-w-full">
                 <thead>
-                <tr class="bg-gray-100">
-                    <th class="px-4 py-2 w-20">No.</th>
-                    <th class="px-4 py-2">Name</th>
-                    <th class="px-4 py-2">Office</th>
-                    <th class="px-4 py-2">Action</th>
-                </tr>
+                    <tr class="bg-gray-100">
+                        <th class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider w-20">No.</th>
+                        <th class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">Name</th>
+                        <th class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">Office</th>
+                        <th class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">Action</th>
+                    </tr>
                 </thead>
-                <tbody>
+                <tbody class="bg-white divide-y divide-gray-200">
                 @foreach($commodities as $commodity)
                     <tr>
-                        <td class="border px-4 py-2">{{ $commodity->id }}</td>
-                        <td class="border px-4 py-2">{{ $commodity->name }}</td>
-                        <td class="border px-4 py-2">{{ $commodity->office ? $commodity->office->name : '' }}</td>
-                        <td class="border px-4 py-2">
-                            <button wire:click="edit({{ $commodity->id }})" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Edit</button>
-                            <button wire:click="delete({{ $commodity->id }})" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">Delete</button>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-center">{{ $commodity->id }}</td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-center">{{ $commodity->name }}</td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-center">{{ $commodity->office ? $commodity->office->name : '' }}</td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-center">
+                            <x-jet-button wire:click="edit({{ $commodity->id }})">Edit</x-jet-button>
+                            <x-jet-danger-button wire:click="delete({{ $commodity->id }})">Delete</x-jet-danger-button>
                         </td>
                     </tr>
                 @endforeach
