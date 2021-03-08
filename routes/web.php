@@ -1,10 +1,10 @@
 <?php
 
-use App\Http\Livewire\AddReport;
 use App\Http\Livewire\Commodities;
 use App\Http\Livewire\Focals;
 use App\Http\Livewire\Offices;
-use App\Http\Livewire\Reports;
+use App\Http\Livewire\ReportAddForm;
+use App\Http\Livewire\ReportListing;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -30,10 +30,9 @@ Route::group(['prefix' => '/','middleware'=>'auth:sanctum'], function() {
     Route::get('focals', Focals::class)->name('focals');
     Route::get('commodities', Commodities::class)->name('commodities');
 
-    Route::get('/reports/create', AddReport::class)->name('reports.create');
-    Route::get('/reports/{report}/edit', Reports\Edit::class)->name('reports.edit');
-    Route::get('/reports/{id}', Reports\ShowReport::class)->name('reports.show');
-    Route::get('reports', Reports::class)->name('reports');
+    Route::get('/reports/create', ReportAddForm::class)->name('reports.create');
+    Route::get('/reports/{report}/edit', ReportAddForm::class)->name('reports.edit');
+    Route::get('/reports', ReportListing::class)->name('reports');
 
     Route::get('/roadmaps/create', \App\Http\Livewire\Roadmaps\Create::class)->name('roadmaps.index');
     Route::get('/roadmaps', \App\Http\Livewire\Roadmaps\Index::class)->name('roadmaps.index');

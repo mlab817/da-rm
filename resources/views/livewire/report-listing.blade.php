@@ -29,10 +29,11 @@
                     @endforeach
                 </select>
             </div>
-            <input class="appearance-none border rounded w-full my-2 py-4 px-4 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="exampleFormControlInput2" wire:model="search" placeholder="Search"></input>
-            @if($isOpen)
-                @include('livewire.reports.create')
+
+            @if($confirmDeleteDialog)
+                @include('livewire.confirm-delete', ['id' => $report_id])
             @endif
+
             <table class="min-w-full divide-y divide-gray-200">
                 <thead>
                     <tr class="bg-gray-100">
@@ -78,18 +79,17 @@
                         </td>
                         <td class="px-6 py-4 whitespace-nowrap text-sm">
                             @if ($report->upload)
-                            <a target="_blank" href="{{ \Illuminate\Support\Facades\Storage::url($report->upload->url ?? '') }}">Report</a>
+                                <a target="_blank" href="{{ \Illuminate\Support\Facades\Storage::url($report->upload->url ?? '') }}">Report</a>
                             @endif
                         </td>
                         <td class="px-6 py-4 whitespace-nowrap text-sm">
                             {{ $report->user ? $report->user->email : '' }}
                         </td>
                         <td class="px-6 py-4 whitespace-nowrap text-sm">
-                            <x-jet-button wire:click="edit({{ $report->id }})">
-                                Edit
-                            </x-jet-button>
-                            <a href="{{ route('reports.edit', $report->id) }}">Edit</a>
-                            <x-jet-danger-button wire:click="delete({{ $report->id }})">
+                            <a
+                                href="{{ route('reports.edit', $report->id) }}"
+                                class="inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:shadow-outline-gray disabled:opacity-25 transition ease-in-out duration-150">Edit</a>
+                            <x-jet-danger-button wire:click="confirmDelete({{ $report->id }})">
                                 Delete
                             </x-jet-danger-button>
                         </td>
@@ -104,5 +104,4 @@
             {{ $reports->links() }}
         </div>
     </div>
-
 </div>
