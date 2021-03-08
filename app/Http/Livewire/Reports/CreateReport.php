@@ -75,7 +75,7 @@ class CreateReport extends Component
             }
         }
 
-        return redirect()->route('reports.index');
+        return redirect()->route('reports');
     }
 
     public function resetInputFields()

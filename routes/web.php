@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Livewire\AddReport;
 use App\Http\Livewire\Commodities;
 use App\Http\Livewire\Focals;
 use App\Http\Livewire\Offices;
@@ -29,7 +30,8 @@ Route::group(['prefix' => '/','middleware'=>'auth:sanctum'], function() {
     Route::get('focals', Focals::class)->name('focals');
     Route::get('commodities', Commodities::class)->name('commodities');
 
-    Route::get('/reports/create', Reports\CreateReport::class)->name('reports.create');
+    Route::get('/reports/create', AddReport::class)->name('reports.create');
+    Route::get('/reports/{report}/edit', Reports\Edit::class)->name('reports.edit');
     Route::get('/reports/{id}', Reports\ShowReport::class)->name('reports.show');
     Route::get('reports', Reports::class)->name('reports');
 

@@ -88,6 +88,7 @@
                             <x-jet-button wire:click="edit({{ $report->id }})">
                                 Edit
                             </x-jet-button>
+                            <a href="{{ route('reports.edit', $report->id) }}">Edit</a>
                             <x-jet-danger-button wire:click="delete({{ $report->id }})">
                                 Delete
                             </x-jet-danger-button>
