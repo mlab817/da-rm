@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Livewire\Commodities;
+use App\Http\Livewire\FocalAddForm;
+use App\Http\Livewire\FocalListing;
 use App\Http\Livewire\Focals;
 use App\Http\Livewire\Offices;
 use App\Http\Livewire\ReportAddForm;
@@ -27,7 +29,9 @@ Route::group(['prefix' => '/','middleware'=>'auth:sanctum'], function() {
         return view('welcome');
     })->name('welcome');
     Route::get('offices', Offices::class)->name('offices');
-    Route::get('focals', Focals::class)->name('focals');
+    Route::get('focals/{focal}/edit', FocalAddForm::class)->name('focals.edit');
+    Route::get('focals/create', FocalAddForm::class)->name('focals.create');
+    Route::get('focals', FocalListing::class)->name('focals');
     Route::get('commodities', Commodities::class)->name('commodities');
 
     Route::get('/reports/create', ReportAddForm::class)->name('reports.create');
