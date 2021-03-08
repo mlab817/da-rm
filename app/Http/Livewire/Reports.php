@@ -21,9 +21,13 @@ class Reports extends Component
     use WithPagination;
     use WithModal;
 
-    public  $report_id;
+    public $report_id;
 
     public $report_period_id;
+
+    public $office_id;
+
+    public $commodity_id;
 
     public $offices;
 
@@ -48,6 +52,20 @@ class Reports extends Component
                 ? Report::where('report_period_id', $this->report_period_id)->paginate(10)
                 : Report::paginate(10),
         ]);
+    }
+
+    public function resetInputFields()
+    {
+        $this->report_id = null;
+        $this->commodity_id = [];
+        $this->office_id = null;
+        $this->file = null;
+    }
+
+    public function create()
+    {
+        $this->resetInputFields();
+        $this->openModal();
     }
 
     public function confirmDelete($id)
