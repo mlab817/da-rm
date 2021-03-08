@@ -8,16 +8,17 @@ use Livewire\Component;
 
 class Commodities extends Component
 {
-    public $commodities, $offices, $name, $office_id, $commodity_id;
+    public $offices, $name, $office_id, $commodity_id;
 
     public $isOpen = false;
 
     public function render()
     {
-        $this->commodities = Commodity::all();
         $this->offices = Office::select('id','name')->get();
 
-        return view('livewire.commodities.index');
+        return view('livewire.commodities.index', [
+            'commodities' => Commodity::paginate(10),
+        ]);
     }
 
     public function openModal()
@@ -72,5 +73,15 @@ class Commodities extends Component
         $this->office_id    = $commodity->office_id;
 
         $this->openModal();
+    }
+
+    public function delete($id)
+    {
+        $commodity = Commodity::findOrFail($id);
+        $commodity->delete();
+
+        session('message',
+            'Commodity deleted successfully'
+        );
     }
 }

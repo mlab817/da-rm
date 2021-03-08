@@ -43,6 +43,7 @@
                 @endforeach
                 </tbody>
             </table>
+            {{ $commodities->links() }}
         </div>
     </div>
 </div>
