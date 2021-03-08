@@ -25,28 +25,14 @@ class CreateReport extends Component
 
     public  $report_period_id = '',
             $office_id = '',
-            $commodity_id = '',
-            $start_date,
-            $participants_involved,
-            $activities_done,
-            $activities_ongoing,
-            $overall_status,
-            $report_date,
-            $user_id,
-            $upload_id,
-            $file;
+            $commodity_id = [],
+            $file = null;
 
     protected $rules = [
-        'office_id'             => 'required',
-        'commodity_id'          => 'required',
-        'start_date'            => 'required',
-        'participants_involved' => 'required',
-        'activities_done'       => 'required',
-        'activities_ongoing'    => 'required',
-        'overall_status'        => 'required',
-        'report_date'           => 'required',
         'report_period_id'      => 'required',
+        'office_id'             => 'required',
         'file'                  => 'sometimes',
+        'commodity_id'          => 'required|array'
     ];
 
     public function render()
@@ -63,40 +49,40 @@ class CreateReport extends Component
         $validatedData = $this->validate();
         $validatedData['user_id'] = Auth::id();
 
-        $roadmap = Roadmap::create($validatedData);
+        $report = Report::create([
+            'report_period_id'  => $validatedData['report_period_id'],
+            'office_id'         => $validatedData['office_id'],
+            'user_id'           => Auth::id(),
+        ]);
+
+        $report->commodities()->sync($validatedData['commodity_id']);
 
         // create report then upload file
-        $upload = $this->file->storePublicly('roadmaps');
+        $upload = $validatedData['file']->storePublicly('reports');
 
         // create upload record
         if ($upload) {
             $newUpload = Upload::create([
                 'upload_type_id' => 2,
-                'title' => $roadmap->commodity->name,
+                'title' => $report->report_period->name . ' - ' . $report->office->name,
                 'url' => $upload,
                 'user_id' => Auth::id(),
             ]);
 
             if ($newUpload) {
-                $roadmap->upload_id = $newUpload->id;
-                $roadmap->saveQuietly();
+                $report->upload_id = $newUpload->id;
+                $report->saveQuietly();
             }
         }
 
-        return redirect()->route('reports.show', $roadmap->id);
+        return redirect()->route('reports.index');
     }
 
     public function resetInputFields()
     {
-        $this->office_id = '';
-        $this->start_date = '';
-        $this->commodity_id = '';
-        $this->participants_involved = '';
-        $this->activities_done = '';
-        $this->activities_ongoing = '';
-        $this->overall_status = '';
-        $this->report_date = '';
         $this->report_period_id = '';
+        $this->office_id = '';
+        $this->commodity_id = '';
         $this->file = '';
     }
 }

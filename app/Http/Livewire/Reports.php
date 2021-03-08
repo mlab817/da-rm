@@ -22,18 +22,8 @@ class Reports extends Component
     use WithModal;
 
     public  $report_id;
-//            $office_id,
-//            $commodity_id,
-//            $start_date,
-//            $participants_involved,
-//            $activities_done,
-//            $activities_ongoing,
-//            $overall_status,
-//            $report_date,
 
     public $report_period_id;
-//            $user_id,
-//            $upload_id;
 
     public $offices;
 
@@ -53,10 +43,10 @@ class Reports extends Component
         $this->commodities = Commodity::select('id','name')->get();
         $this->report_periods = ReportPeriod::select('id','name')->get();
 
-        $reports = $this->search ? Report::where('report_period_id', $this->report_period_id)->search($this->search)->paginate(10) : Report::where('report_period_id', $this->report_period_id)->paginate(10);
-
         return view('livewire.reports.index',[
-            'reports' => $reports,
+            'reports' => $this->report_period_id
+                ? Report::where('report_period_id', $this->report_period_id)->paginate(10)
+                : Report::paginate(10),
         ]);
     }
 
@@ -66,9 +56,9 @@ class Reports extends Component
         $this->report_id = $id;
     }
 
-    public function delete()
+    public function delete($id)
     {
-        $report = Report::findOrFail($this->report_id);
+        $report = Report::findOrFail($id);
         $report->delete();
 
         $this->confirmDeleteDialog = false;

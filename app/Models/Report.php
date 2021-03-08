@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Laravel\Scout\Searchable;
 
 class Report extends Model
@@ -30,9 +31,9 @@ class Report extends Model
         'report_date' => 'datetime:Y-m-d'
     ];
 
-    public function commodity(): BelongsTo
+    public function commodities(): BelongsToMany
     {
-        return $this->belongsTo(Commodity::class);
+        return $this->belongsToMany(Commodity::class);
     }
 
     public function office(): BelongsTo
