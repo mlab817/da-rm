@@ -33,7 +33,7 @@ class Commodities extends Component
 
     public function resetInputFields()
     {
-        $this->commodity_id = '';
+        $this->commodity_id = null;
         $this->name = '';
         $this->office_id = '';
     }

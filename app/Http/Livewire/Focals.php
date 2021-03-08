@@ -5,27 +5,27 @@ namespace App\Http\Livewire;
 use App\Models\Commodity;
 use App\Models\Focal;
 use App\Models\Office;
+use App\Traits\WithModal;
 use Livewire\Component;
 
 class Focals extends Component
 {
-    public $focals,
-        $commodities,
-        $offices,
-        $statuses,
-        $status,
-        $commodity_id,
-        $name,
-        $designation,
-        $email,
-        $office_id,
-        $telephone_number,
-        $fax_number,
-        $mobile_number,
-        $viber_number,
-        $focal_id;
+    use WithModal;
 
-    public $isOpen = false;
+    public  $commodities,
+            $offices,
+            $statuses,
+            $status,
+            $commodity_id,
+            $name,
+            $designation,
+            $email,
+            $office_id,
+            $telephone_number,
+            $fax_number,
+            $mobile_number,
+            $viber_number,
+            $focal_id;
 
     protected $rules = [
         'status'            => 'required|in:permanent,alternate',
@@ -47,22 +47,13 @@ class Focals extends Component
 
     public function render()
     {
-        $this->focals = Focal::all();
         $this->offices = Office::select('id','name')->get();
         $this->commodities = Commodity::select('id','name')->get();
         $this->statuses = ['permanent','alternate'];
 
-        return view('livewire.focals.index');
-    }
-
-    public function openModal()
-    {
-        $this->isOpen = true;
-    }
-
-    public function closeModal()
-    {
-        $this->isOpen = false;
+        return view('livewire.focals.index',[
+            'focals' => Focal::paginate(10)
+        ]);
     }
 
     public function resetInputFields()
@@ -77,7 +68,7 @@ class Focals extends Component
         $this->fax_number = '';
         $this->mobile_number = '';
         $this->viber_number = '';
-        $this->focal_id = '';
+        $this->focal_id = null;
     }
 
     public function create()
