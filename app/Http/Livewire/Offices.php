@@ -36,7 +36,7 @@ class Offices extends Component
     {
         $this->name = '';
         $this->short_name = '';
-        $this->office_id = '';
+        $this->office_id = null;
     }
 
     public function store()
