@@ -38,9 +38,6 @@
                 <thead>
                     <tr class="bg-gray-100">
                         <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
-                            No.
-                        </th>
-                        <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
                             Report Period
                         </th>
                         <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
@@ -63,26 +60,23 @@
                 <tbody class="bg-white divide-y divide-gray-200">
                 @forelse($reports as $report)
                     <tr>
-                        <td class="px-6 py-4 whitespace-nowrap text-sm">
-                            {{ $report->id }}
-                        </td>
-                        <td class="px-6 py-4 whitespace-nowrap text-sm">
+                        <td class="px-6 py-4 flex-wrap text-sm text-center">
                             {{ $report->report_period->name ?? '' }}
                         </td>
-                        <td class="px-6 py-4 whitespace-nowrap text-sm">
+                        <td class="px-6 py-4 flex-wrap text-sm">
                             {{ $report->office ? $report->office->short_name : '' }}
                         </td>
-                        <td class="px-6 py-4 whitespace-nowrap text-sm">
+                        <td class="px-6 py-4 flex-wrap text-sm text-center">
                             @foreach($report->commodities as $item)
                                 {{ $item->name }},
                             @endforeach
                         </td>
-                        <td class="px-6 py-4 whitespace-nowrap text-sm">
+                        <td class="px-6 py-4 flex-wrap text-sm text-center">
                             @if ($report->upload)
                                 <a target="_blank" href="{{ \Illuminate\Support\Facades\Storage::url($report->upload->url ?? '') }}">Report</a>
                             @endif
                         </td>
-                        <td class="px-6 py-4 whitespace-nowrap text-sm">
+                        <td class="px-6 py-4 flex-wrap text-sm">
                             {{ $report->user ? $report->user->email : '' }}
                         </td>
                         <td class="px-6 py-4 whitespace-nowrap text-sm">

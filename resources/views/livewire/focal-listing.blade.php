@@ -17,10 +17,11 @@
                 </div>
             @endif
 
-            <div class="my-3">
+            <div class="flex my-3 justify-between w-full">
                 <a class="inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:shadow-outline-gray disabled:opacity-25 transition ease-in-out duration-150" href="{{ route('focals.create') }}">
                     Add Focal
                 </a>
+                <input class="shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" placeholder="Search" wire:model="search">
             </div>
 
             <table class="table-fixed min-w-full">

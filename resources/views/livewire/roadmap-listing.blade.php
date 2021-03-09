@@ -41,15 +41,17 @@
                 <tbody class="bg-white divide-y divide-gray-200">
                 @forelse($roadmaps as $item)
                     <tr>
-                        <td class="px-4 py-2 text-sm">{{ $item->id }}</td>
-                        <td class="px-4 py-2 text-sm">{{ $item->commodity->name }}</td>
-                        <td class="px-4 py-2 text-sm">{{ $item->start_date }}</td>
-                        <td class="px-4 py-2 text-sm">{{ $item->participants_involved }}</td>
-                        <td class="px-4 py-2 text-sm">{{ $item->activities_done }}</td>
-                        <td class="px-4 py-2 text-sm">{{ $item->activities_ongoing }}</td>
-                        <td class="px-4 py-2 text-sm">{{ $item->overall_status }}</td>
-                        <td class="px-4 py-2 text-sm">{{ $item->report_date }}</td>
-                        <td class="px-4 py-2 text-sm">{{ $item->upload->url ?? '' }}</td>
+                        <td class="px-4 py-2 text-sm flex-wrap">{{ $item->id }}</td>
+                        <td class="px-4 py-2 text-sm flex-wrap">{{ $item->commodity->name }}</td>
+                        <td class="px-4 py-2 text-sm flex-wrap">{{ $item->start_date }}</td>
+                        <td class="px-4 py-2 text-sm flex-wrap">{{ $item->participants_involved }}</td>
+                        <td class="px-4 py-2 text-sm flex-wrap">{{ $item->activities_done }}</td>
+                        <td class="px-4 py-2 text-sm flex-wrap">{{ $item->activities_ongoing }}</td>
+                        <td class="px-4 py-2 text-sm flex-wrap">{{ $item->overall_status }}</td>
+                        <td class="px-4 py-2 text-sm flex-wrap">{{ $item->report_date }}</td>
+                        <td class="px-4 py-2 text-sm flex-wrap">
+                            <x-jet-button wire:click="download({{ $item->id }})">Report</x-jet-button>
+                        </td>
                         <td class="px-4 py-2 text-sm whitespace-nowrap">
                             <a class="inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:shadow-outline-gray disabled:opacity-25 transition ease-in-out duration-150" href="{{ route('roadmaps.edit', $item->id) }}">Edit</a>
                             <x-jet-danger-button wire:click="delete({{ $item->id }})">Delete</x-jet-danger-button>

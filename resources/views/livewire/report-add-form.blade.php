@@ -70,18 +70,13 @@
                         <label for="commodity_id" class="block text-sm font-medium text-gray-700">
                             Commodity
                         </label>
-                        <div class="mt-1">
-                            <select
-                                id="commodity_id"
-                                class="focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded sm:text-sm border-gray-300"
-                                placeholder="Select Commodity"
-                                wire:model="commodity_id"
-                                multiple>
-                                <option value="" disabled>Select Commodity</option>
-                                @foreach ($commodities as $item)
-                                    <option value="{{ $item->id }}">{{ $item->name }}</option>
-                                @endforeach
-                            </select>
+                        <div class="px-2 mt-1">
+                            @foreach($commodities as $item)
+                                <label class="inline-flex items-center w-full">
+                                    <input class="form-check" type="checkbox" value="{{ $item->id }}" wire:model="commodity_id">
+                                    <span class="ml-2">{{ $item->name }}</span>
+                                </label>
+                            @endforeach
                         </div>
                         @error('commodity_id')
                         <p class="mt-2 text-sm text-red-500">

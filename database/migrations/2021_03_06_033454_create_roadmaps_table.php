@@ -17,7 +17,7 @@ class CreateRoadmapsTable extends Migration
             $table->id();
             $table->foreignId('commodity_id')->nullable()->constrained()->nullOnDelete();
             $table->foreignId('report_id')->nullable()->constrained('reports')->nullOnDelete();
-            $table->string('start_date', 50)->nullable();
+            $table->string('start_date')->nullable();
             $table->text('participants_involved')->nullable();
             $table->text('activities_done')->nullable();
             $table->text('activities_ongoing')->nullable();

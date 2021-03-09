@@ -109,7 +109,7 @@ class RoadmapAddForm extends Component
         // handle file save
         if ($this->file)
         {
-            $title = time() . '_' . $roadmap->commodity->name . ' as of ' . $roadmap->report->report_period->name;
+            $title = preg_replace('/[^a-zA-Z0-9\-\._]/',' ', time() . '_' . $roadmap->commodity->name . ' as of ' . $roadmap->report->report_period->name);
             $uploadedFile = $this->file->storePubliclyAs('roadmaps', $title . '.' . $this->file->extension());
 
             $upload = Upload::create([

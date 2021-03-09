@@ -47,14 +47,14 @@ class FocalAddForm extends Component
     protected $rules = [
         'status'            => 'required|in:permanent,alternate',
         'commodity_id'      => 'required',
-        'name'              => 'required',
-        'designation'       => 'required',
-        'email'             => 'required',
+        'name'              => 'required|max:50',
+        'designation'       => 'required|max:50',
+        'email'             => 'required|max:50',
         'office_id'         => 'required',
-        'telephone_number'  => 'required',
-        'fax_number'        => 'required',
-        'mobile_number'     => 'required',
-        'viber_number'      => 'required',
+        'telephone_number'  => 'required|max:50',
+        'fax_number'        => 'required|max:50',
+        'mobile_number'     => 'required|max:50',
+        'viber_number'      => 'required|max:50',
     ];
 
     public function updated($propertyName)
