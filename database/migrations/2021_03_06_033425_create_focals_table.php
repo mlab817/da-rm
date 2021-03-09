@@ -16,11 +16,11 @@ class CreateFocalsTable extends Migration
         Schema::create('focals', function (Blueprint $table) {
             $table->id();
             $table->enum('status',['permanent','alternate'])->nullable();
-            $table->foreignId('commodity_id')->nullable()->constrained('commodities')->onDelete('set null');
+            $table->foreignId('commodity_id')->nullable()->constrained('commodities')->nullOnDelete();
             $table->string('name', 30);
             $table->string('designation', 30)->nullable();
             $table->string('email', 30)->nullable();
-            $table->foreignId('office_id')->nullable()->constrained('offices')->onDelete('set null');
+            $table->foreignId('office_id')->nullable()->constrained('offices')->nullOnDelete();
             $table->string('telephone_number', 50)->nullable();
             $table->string('fax_number', 50)->nullable();
             $table->string('mobile_number', 50)->nullable();

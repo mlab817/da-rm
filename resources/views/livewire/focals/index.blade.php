@@ -33,7 +33,7 @@
                         <th class="px-4 py-2">Actions</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody class="bg-white divide-y divide-gray-200">
                 @forelse($focals as $item)
                     <tr>
                         <td class="border px-4 py-2 text-sm">{{ $item->id }}</td>

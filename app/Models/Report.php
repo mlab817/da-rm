@@ -31,6 +31,10 @@ class Report extends Model
         'report_date' => 'datetime:Y-m-d'
     ];
 
+    protected $appends = [
+        'title',
+    ];
+
     public function commodities(): BelongsToMany
     {
         return $this->belongsToMany(Commodity::class);
@@ -54,5 +58,23 @@ class Report extends Model
     public function upload(): BelongsTo
     {
         return $this->belongsTo(Upload::class);
+    }
+
+    public function getTitleAttribute(): string
+    {
+        return ($this->office && $this->report_period)
+            ? $this->office->short_name . ' as of ' . $this->report_period->name
+            : '';
+    }
+
+    public function toSearchableArray()
+    {
+        return [
+            'id' => $this->id,
+            'participants_involved' => $this->participants_involved,
+            'activities_done' => $this->activities_done,
+            'activities_ongoing' => $this->activities_ongoing,
+            'overall_status' => $this->overall_status,
+        ];
     }
 }

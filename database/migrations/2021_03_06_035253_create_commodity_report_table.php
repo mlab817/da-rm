@@ -14,8 +14,8 @@ class CreateCommodityReportTable extends Migration
     public function up()
     {
         Schema::create('commodity_report', function (Blueprint $table) {
-            $table->foreignId('report_id');
-            $table->foreignId('commodity_id');
+            $table->foreignId('report_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('commodity_id')->constrained()->cascadeOnDelete();
         });
     }
 

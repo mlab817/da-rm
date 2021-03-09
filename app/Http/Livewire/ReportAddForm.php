@@ -54,7 +54,7 @@ class ReportAddForm extends Component
         'report_period_id'  => 'required',
         'office_id'         => 'required',
         'commodity_id'      => 'required',
-        'file'              => 'sometimes',
+        'file'              => 'required',
     ];
 
     public function resetInputFields()
@@ -90,11 +90,13 @@ class ReportAddForm extends Component
         $report->commodities()->sync($this->commodity_id);
         // upload the file if it exists
         if ($this->file) {
-            $upload = $this->file->storePublicly('reports');
+            $title = time() . '_' . $report->office->name . ' as of ' . $report->report_period->name;
+
+            $upload = $this->file->storePubliclyAs('reports', $title . '.' .$this->file->extension());
             // create upload entry
             $uploadEntry = Upload::create([
                 'upload_type_id'    => 2,
-                'title'             => now() . '_Roadmap',
+                'title'             => $title,
                 'url'               => $upload,
                 'user_id'           => Auth::id(),
             ]);

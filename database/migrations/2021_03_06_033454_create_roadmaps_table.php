@@ -15,8 +15,8 @@ class CreateRoadmapsTable extends Migration
     {
         Schema::create('roadmaps', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('commodity_id')->constrained('commodities');
-            $table->foreignId('report_id')->constrained('reports');
+            $table->foreignId('commodity_id')->nullable()->constrained()->nullOnDelete();
+            $table->foreignId('report_id')->nullable()->constrained('reports')->nullOnDelete();
             $table->string('start_date', 50)->nullable();
             $table->text('participants_involved')->nullable();
             $table->text('activities_done')->nullable();

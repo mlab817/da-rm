@@ -4,13 +4,14 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Roadmap extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-//        'office_id',
+        'report_id',
         'commodity_id',
         'start_date',
         'participants_involved',
@@ -18,8 +19,20 @@ class Roadmap extends Model
         'activities_ongoing',
         'overall_status',
         'report_date',
-//        'report_period_id',
-        'user_id',
-        'upload_id',
     ];
+
+    public function commodity(): BelongsTo
+    {
+        return $this->belongsTo(Commodity::class);
+    }
+
+    public function report(): BelongsTo
+    {
+        return $this->belongsTo(Report::class);
+    }
+
+    public function upload(): BelongsTo
+    {
+        return $this->belongsTo(Upload::class);
+    }
 }

@@ -15,11 +15,11 @@ class CreateReportsTable extends Migration
     {
         Schema::create('reports', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('office_id');
-            $table->foreignId('report_period_id');
-            $table->foreignId('upload_id')->nullable();
+            $table->foreignId('office_id')->nullable()->constrained()->nullOnDelete();
+            $table->foreignId('report_period_id')->nullable()->constrained()->nullOnDelete();
+            $table->foreignId('upload_id')->nullable()->constrained()->nullOnDelete();
             $table->text('remarks')->nullable();
-            $table->foreignId('user_id')->nullable()->constrained('users')->onDelete('set null');;
+            $table->foreignId('user_id')->nullable()->constrained('users')->nullOnDelete();
             $table->timestamps();
         });
     }

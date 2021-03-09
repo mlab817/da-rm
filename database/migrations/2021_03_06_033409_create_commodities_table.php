@@ -17,7 +17,7 @@ class CreateCommoditiesTable extends Migration
             $table->id();
             $table->string('name', 30);
             $table->string('slug')->nullable();
-            $table->foreignId('office_id')->constrained('offices');
+            $table->foreignId('office_id')->nullable()->constrained()->nullOnDelete();
             $table->timestamps();
         });
     }

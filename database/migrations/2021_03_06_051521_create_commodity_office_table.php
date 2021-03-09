@@ -14,8 +14,8 @@ class CreateCommodityOfficeTable extends Migration
     public function up()
     {
         Schema::create('commodity_office', function (Blueprint $table) {
-            $table->foreignId('commodity_id');
-            $table->foreignId('office_id');
+            $table->foreignId('commodity_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('office_id')->constrained()->cascadeOnDelete();
         });
     }
 

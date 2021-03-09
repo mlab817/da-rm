@@ -25,16 +25,16 @@
 
             <table class="table-fixed min-w-full">
                 <thead>
-                <tr class="bg-gray-100">
-                    <th class="px-4 py-2 w-20">No.</th>
-                    <th class="px-4 py-2">Office</th>
-                    <th class="px-4 py-2">Commodity</th>
-                    <th class="px-4 py-2">Name</th>
-                    <th class="px-4 py-2">Designation</th>
-                    <th class="px-4 py-2">Email</th>
-                    <th class="px-4 py-2 flex-wrap">Tel/Fax/Mobile/Viber Nos.</th>
-                    <th class="px-4 py-2">Actions</th>
-                </tr>
+                    <tr class="bg-gray-100">
+                        <th class="px-4 py-2 w-20">No.</th>
+                        <th class="px-4 py-2">Office</th>
+                        <th class="px-4 py-2">Commodity</th>
+                        <th class="px-4 py-2">Name</th>
+                        <th class="px-4 py-2">Designation</th>
+                        <th class="px-4 py-2">Email</th>
+                        <th class="px-4 py-2 flex-wrap">Tel/Fax/Mobile/Viber Nos.</th>
+                        <th class="px-4 py-2">Actions</th>
+                    </tr>
                 </thead>
                 <tbody>
                 @forelse($focals as $item)

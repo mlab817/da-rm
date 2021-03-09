@@ -2,7 +2,29 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9c017853-8376-42ce-b372-4cfe3690bcef" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/da-rm.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/da-rm.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Console/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Console/Kernel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/ReportAddForm.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/ReportAddForm.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Report.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Report.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Roadmap.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Roadmap.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2021_03_06_033409_create_commodities_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_03_06_033409_create_commodities_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2021_03_06_033425_create_focals_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_03_06_033425_create_focals_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2021_03_06_033452_create_uploads_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_03_06_033452_create_uploads_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2021_03_06_033453_create_reports_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_03_06_033453_create_reports_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2021_03_06_033454_create_roadmaps_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_03_06_033454_create_roadmaps_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2021_03_06_035253_create_commodity_report_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_03_06_035253_create_commodity_report_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2021_03_06_051521_create_commodity_office_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_03_06_051521_create_commodity_office_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeders/CommoditiesTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/CommoditiesTableSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/livewire/focal-listing.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/focal-listing.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/livewire/focals.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/livewire/focals/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/focals/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/livewire/report-add-form.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/report-add-form.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/livewire/report.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/livewire/show-offices.blade.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -148,6 +170,14 @@
       <path value="$PROJECT_DIR$/vendor/bacon/bacon-qr-code" />
       <path value="$PROJECT_DIR$/vendor/teamtnt/tntsearch" />
       <path value="$PROJECT_DIR$/vendor/teamtnt/laravel-scout-tntsearch-driver" />
+      <path value="$PROJECT_DIR$/vendor/myclabs/php-enum" />
+      <path value="$PROJECT_DIR$/vendor/ezyang/htmlpurifier" />
+      <path value="$PROJECT_DIR$/vendor/maennchen/zipstream-php" />
+      <path value="$PROJECT_DIR$/vendor/psr/http-factory" />
+      <path value="$PROJECT_DIR$/vendor/maatwebsite/excel" />
+      <path value="$PROJECT_DIR$/vendor/markbaker/complex" />
+      <path value="$PROJECT_DIR$/vendor/markbaker/matrix" />
+      <path value="$PROJECT_DIR$/vendor/phpoffice/phpspreadsheet" />
     </include_path>
   </component>
   <component name="ProjectId" id="1pMl6ctjU9aeavYLGvGRIU2g7GF" />
@@ -165,7 +195,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">

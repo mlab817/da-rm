@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Schema;
 
 class CommoditiesTableSeeder extends Seeder
 {
@@ -14,10 +15,15 @@ class CommoditiesTableSeeder extends Seeder
      */
     public function run()
     {
+        Schema::disableForeignKeyConstraints();
+
+        DB::table('commodities')->truncate();
+
         $commodities = [
             'Rice',
             'Yellow Corn',
             'White Corn',
+            'Cassava',
             'Cacao',
             'Coffee',
             'Rubber',
@@ -49,5 +55,7 @@ class CommoditiesTableSeeder extends Seeder
                 'office_id' => 1,
             ]);
         }
+
+        Schema::enableForeignKeyConstraints();
     }
 }

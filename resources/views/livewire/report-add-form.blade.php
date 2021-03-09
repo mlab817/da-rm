@@ -100,6 +100,7 @@
                                 class="focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded sm:text-sm border-gray-300"
                                 placeholder="Attachment"
                                 wire:model="file">
+                            <div wire:loading wire:target="file">Uploading...</div>
                         </div>
                         @error('file')
                         <p class="mt-2 text-sm text-red-500">
@@ -111,7 +112,7 @@
             </form>
         </div>
         <div class="bg-gray-50 px-4 py-3 rounded-b-lg sm:flex sm:flex-row-reverse">
-            <x-jet-button class="ml-2" wire:click.prevent="store()">Submit</x-jet-button>
+            <x-jet-button class="ml-2" wire:click.prevent="store()" wire:loading.attr="disabled">Submit</x-jet-button>
 
             <x-jet-secondary-button wire:click.prevent="resetInputFields()" wire:loading.attr="disabled">
                 Reset

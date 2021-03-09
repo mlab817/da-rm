@@ -15,10 +15,10 @@ class CreateUploadsTable extends Migration
     {
         Schema::create('uploads', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('upload_type_id');
-            $table->string('title', 50);
-            $table->string('url');
-            $table->foreignId('user_id');
+            $table->foreignId('upload_type_id')->nullable()->constrained()->nullOnDelete();
+            $table->text('title');
+            $table->text('url');
+            $table->foreignId('user_id')->nullable();
             $table->timestamps();
         });
     }
