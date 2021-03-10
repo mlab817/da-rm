@@ -42,6 +42,11 @@ class Roadmap extends Model
         return $this->hasMany(RoadmapUpdate::class);
     }
 
+    public function roadmap_versions(): HasMany
+    {
+        return $this->hasMany(RoadmapVersion::class);
+    }
+
     public function upload(): BelongsTo
     {
         return $this->belongsTo(Upload::class);

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Livewire\Commodities;
+use App\Http\Livewire\ComplianceReviewForm;
 use App\Http\Livewire\FocalAddForm;
 use App\Http\Livewire\FocalListing;
 use App\Http\Livewire\Focals;
@@ -45,4 +46,6 @@ Route::group(['prefix' => '/','middleware'=>'auth:sanctum'], function() {
     Route::get('/roadmaps/{roadmap}/edit', RoadmapAddForm::class)->name('roadmaps.edit');
     Route::get('/roadmaps/{roadmap}', RoadmapShow::class)->name('roadmaps.show');
     Route::get('/roadmaps', RoadmapListing::class)->name('roadmaps.index');
+
+    Route::get('/compliance-review/{roadmap_version}', ComplianceReviewForm::class)->name('compliance.review');
 });
