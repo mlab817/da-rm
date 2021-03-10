@@ -39,9 +39,9 @@ class RoadmapVersionAdd extends Component
         $this->uploadVersionDialog = false;
     }
 
-    public function mount($versions, $roadmap_id)
+    public function mount($roadmap_id)
     {
-        $this->versions = $versions;
+        $this->versions = RoadmapVersion::where('roadmap_id', $roadmap_id)->get();
         $this->roadmap_id = $roadmap_id;
     }
 

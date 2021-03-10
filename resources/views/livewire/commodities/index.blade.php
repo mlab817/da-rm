@@ -16,7 +16,12 @@
                     </div>
                 </div>
             @endif
-            <x-jet-button wire:click="create()" class="my-3">Add Commodity</x-jet-button>
+
+            <div class="flex my-3 justify-between w-full">
+                <x-jet-button wire:click="create()" class="inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:shadow-outline-gray disabled:opacity-25 transition ease-in-out duration-150">Add Commodity</x-jet-button>
+                <input class="shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" placeholder="Search" type="text" wire:model="search">
+            </div>
+
             @if($isOpen)
                 @include('livewire.commodities.create')
             @endif

@@ -8,7 +8,7 @@ use Livewire\Component;
 
 class Commodities extends Component
 {
-    public $offices, $name, $office_id, $commodity_id;
+    public $offices, $name, $office_id, $commodity_id, $search;
 
     public $isOpen = false;
 
@@ -17,7 +17,9 @@ class Commodities extends Component
         $this->offices = Office::select('id','name')->get();
 
         return view('livewire.commodities.index', [
-            'commodities' => Commodity::paginate(10),
+            'commodities' => trim($this->search)
+                ? Commodity::search($this->search)->paginate(10)
+                : Commodity::paginate(10),
         ]);
     }
 

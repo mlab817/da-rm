@@ -8,13 +8,7 @@
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
         <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg px-4 py-4">
             @if (session()->has('message'))
-                <div class="bg-teal-100 border-t-4 border-teal-500 rounded-b text-teal-900 px-4 py-3 shadow-md my-3" role="alert">
-                    <div class="flex">
-                        <div>
-                            <p class="text-sm">{{ session('message') }}</p>
-                        </div>
-                    </div>
-                </div>
+                <livewire:alert title="Success" message="{{ session('message') }}"></livewire:alert>
             @endif
 
             <div class="flex my-3 justify-between w-full">
@@ -24,17 +18,17 @@
                 <input class="shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" placeholder="Search" wire:model="search">
             </div>
 
-            <table class="table-fixed min-w-full">
+            <x-table>
                 <thead>
                     <tr class="bg-gray-100">
-                        <th class="px-4 py-2 w-20">No.</th>
-                        <th class="px-4 py-2">Office</th>
-                        <th class="px-4 py-2">Commodity</th>
-                        <th class="px-4 py-2">Name</th>
-                        <th class="px-4 py-2">Designation</th>
-                        <th class="px-4 py-2">Email</th>
-                        <th class="px-4 py-2 flex-wrap">Tel/Fax/Mobile/Viber Nos.</th>
-                        <th class="px-4 py-2">Actions</th>
+                        <x-th class="px-4 py-2 w-20">No.</x-th>
+                        <x-th class="px-4 py-2">Office</x-th>
+                        <x-th class="px-4 py-2">Commodity</x-th>
+                        <x-th class="px-4 py-2">Name</x-th>
+                        <x-th class="px-4 py-2">Designation</x-th>
+                        <x-th class="px-4 py-2">Email</x-th>
+                        <x-th class="px-4 py-2 flex-wrap">Tel/Fax/Mobile/Viber Nos.</x-th>
+                        <x-th class="px-4 py-2">Actions</x-th>
                     </tr>
                 </thead>
                 <tbody>
@@ -67,7 +61,7 @@
                     </tr>
                 @endforelse
                 </tbody>
-            </table>
+            </x-table>
             {{ $focals->links() }}
         </div>
     </div>

@@ -118,6 +118,8 @@ class FocalAddForm extends Component
         session()->flash('message',
             $this->focal_id ? 'Successfully updated focal' : 'Successfully created focal'
         );
+
+        return redirect()->route('focals');
     }
 
     public function render()

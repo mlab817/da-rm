@@ -7,25 +7,13 @@
 <div class="py-12">
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
         <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
-            <div class="px-4 py-4">
-                @if (session()->has('message'))
-                    <div class="bg-teal-100 border-t-4 border-teal-500 rounded-b text-teal-900 px-4 py-3 shadow-md my-3" role="alert">
-                        <div class="flex">
-                            <div>
-                                <p class="text-sm">{{ session('message') }}</p>
-                            </div>
-                        </div>
-                    </div>
-                @endif
-            </div>
-
             <form>
                 <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
                     <div class="">
                         <div class="mb-4">
                             <label for="exampleFormControlInput1" class="block text-gray-700 text-sm font-bold mb-2">Office:</label>
                             <select type="text" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="exampleFormControlInput1" placeholder="Select Office" wire:model="office_id">
-                                <option value="" disabled>Select Office</option>
+                                <option value="">Select Office</option>
                                 @foreach ($offices as $office)
                                     <option value="{{ $office->id }}">{{ $office->name }}</option>
                                 @endforeach
@@ -33,9 +21,9 @@
                             @error('office_id') <span class="text-red-500">{{ $message }}</span>@enderror
                         </div>
                         <div class="mb-4">
-                            <label for="exampleFormControlInput1" class="block text-gray-700 text-sm font-bold mb-2">Commodity:</label>
+                            <label for="exampleFormControlInput1" class="block text-gray-700 text-sm font-bold mb-2">Roadmap:</label>
                             <select type="text" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="exampleFormControlInput1" placeholder="Select Roadmap" wire:model="roadmap_id">
-                                <option value="" disabled>Select Roadmap</option>
+                                <option value="">Select Roadmap</option>
                                 @foreach ($roadmaps as $item)
                                     <option value="{{ $item->id }}">{{ $item->commodity->name }}</option>
                                 @endforeach
@@ -45,7 +33,7 @@
                         <div class="mb-4">
                             <label for="exampleFormControlInput1" class="block text-gray-700 text-sm font-bold mb-2">Status:</label>
                             <select type="text" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="exampleFormControlInput1" placeholder="Select Status" wire:model="status">
-                                <option value="" disabled>Select Status</option>
+                                <option value="">Select Status</option>
                                 @foreach ($statuses as $status)
                                     <option value="{{ $status }}">{{ $status }}</option>
                                 @endforeach
