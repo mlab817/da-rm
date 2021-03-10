@@ -29,7 +29,7 @@ class RoadmapListing extends Component
     public function render()
     {
         return view('livewire.roadmap-listing',[
-            'roadmaps' => Roadmap::paginate(10)
+            'roadmaps' => Roadmap::paginate(10),
         ]);
     }
 }

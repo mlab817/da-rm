@@ -9,6 +9,7 @@ use App\Http\Livewire\ReportAddForm;
 use App\Http\Livewire\ReportListing;
 use App\Http\Livewire\RoadmapAddForm;
 use App\Http\Livewire\RoadmapListing;
+use App\Http\Livewire\RoadmapShow;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -40,7 +41,8 @@ Route::group(['prefix' => '/','middleware'=>'auth:sanctum'], function() {
     Route::get('/reports/{report}/edit', ReportAddForm::class)->name('reports.edit');
     Route::get('/reports', ReportListing::class)->name('reports');
 
-    Route::get('/roadmaps/{roadmap}/edit', RoadmapAddForm::class)->name('roadmaps.edit');
     Route::get('/roadmaps/create', RoadmapAddForm::class)->name('roadmaps.create');
+    Route::get('/roadmaps/{roadmap}/edit', RoadmapAddForm::class)->name('roadmaps.edit');
+    Route::get('/roadmaps/{roadmap}', RoadmapShow::class)->name('roadmaps.show');
     Route::get('/roadmaps', RoadmapListing::class)->name('roadmaps.index');
 });

@@ -5,6 +5,7 @@ namespace App\Http\Livewire;
 use App\Models\Commodity;
 use App\Models\Focal;
 use App\Models\Office;
+use App\Models\Roadmap;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
@@ -12,7 +13,7 @@ class FocalAddForm extends Component
 {
     public $focal = null,
         $status = '',
-        $commodity_id = '',
+        $roadmap_id = '',
         $name = '',
         $designation = '',
         $email = '',
@@ -32,7 +33,7 @@ class FocalAddForm extends Component
             $this->focal = $focal;
             $this->focal_id = $this->focal->id;
             $this->status = $this->focal->status;
-            $this->commodity_id = $this->focal->commodity_id;
+            $this->roadmap_id = $this->focal->roadmap_id;
             $this->name = $this->focal->name;
             $this->designation = $this->focal->designation;
             $this->email = $this->focal->email;
@@ -42,11 +43,22 @@ class FocalAddForm extends Component
             $this->mobile_number = $this->focal->mobile_number;
             $this->viber_number = $this->focal->viber_number;
         }
+
+        $office_id = request()->query('office_id');
+        $roadmap_id = request()->query('roadmap_id');
+
+        if ($office_id) {
+            $this->office_id = $office_id;
+        }
+
+        if ($roadmap_id) {
+            $this->roadmap_id = $roadmap_id;
+        }
     }
 
     protected $rules = [
         'status'            => 'required|in:permanent,alternate',
-        'commodity_id'      => 'required',
+        'roadmap_id'        => 'required',
         'name'              => 'required|max:50',
         'designation'       => 'required|max:50',
         'email'             => 'required|max:50',
@@ -65,7 +77,7 @@ class FocalAddForm extends Component
     public function resetInputFields()
     {
         $this->status = '';
-        $this->commodity_id = '';
+        $this->roadmap_id = '';
         $this->name = '';
         $this->designation = '';
         $this->email = '';
@@ -83,7 +95,7 @@ class FocalAddForm extends Component
 
         $data = [
             'status' => $this->status,
-            'commodity_id' => $this->commodity_id,
+            'roadmap_id' => $this->roadmap_id,
             'name' => $this->name,
             'designation' => $this->designation,
             'email' => $this->email,
@@ -112,7 +124,7 @@ class FocalAddForm extends Component
     {
         return view('livewire.focal-add-form',[
             'offices' => Office::select('id','name')->get(),
-            'commodities' => Commodity::select('id','name')->get(),
+            'roadmaps' => Roadmap::with('commodity')->get(),
             'statuses' => ['permanent','alternate'],
         ]);
     }

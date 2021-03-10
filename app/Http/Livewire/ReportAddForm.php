@@ -115,7 +115,7 @@ class ReportAddForm extends Component
     public function render()
     {
         $this->offices = Office::all();
-        $this->commodities = Commodity::all();
+        $this->commodities = $this->office_id ? Commodity::where('office_id', $this->office_id)->get() : Commodity::all();
         $this->report_periods = ReportPeriod::all();
 
         return view('livewire.report-add-form');

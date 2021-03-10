@@ -34,13 +34,13 @@
                         </div>
                         <div class="mb-4">
                             <label for="exampleFormControlInput1" class="block text-gray-700 text-sm font-bold mb-2">Commodity:</label>
-                            <select type="text" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="exampleFormControlInput1" placeholder="Select Commodity" wire:model="commodity_id">
-                                <option value="" disabled>Select Commodity</option>
-                                @foreach ($commodities as $commodity)
-                                    <option value="{{ $commodity->id }}">{{ $commodity->name }}</option>
+                            <select type="text" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="exampleFormControlInput1" placeholder="Select Roadmap" wire:model="roadmap_id">
+                                <option value="" disabled>Select Roadmap</option>
+                                @foreach ($roadmaps as $item)
+                                    <option value="{{ $item->id }}">{{ $item->commodity->name }}</option>
                                 @endforeach
                             </select>
-                            @error('commodity_id') <span class="text-red-500">{{ $message }}</span>@enderror
+                            @error('roadmap_id') <span class="text-red-500">{{ $message }}</span>@enderror
                         </div>
                         <div class="mb-4">
                             <label for="exampleFormControlInput1" class="block text-gray-700 text-sm font-bold mb-2">Status:</label>
@@ -50,7 +50,7 @@
                                     <option value="{{ $status }}">{{ $status }}</option>
                                 @endforeach
                             </select>
-                            @error('commodity_id') <span class="text-red-500">{{ $message }}</span>@enderror
+                            @error('status') <span class="text-red-500">{{ $message }}</span>@enderror
                         </div>
                         <div class="mb-4">
                             <label for="exampleFormControlInput2" class="block text-gray-700 text-sm font-bold mb-2">Name:</label>

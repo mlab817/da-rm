@@ -1,0 +1,298 @@
+[
+  {
+    "id": 1,
+    "title": "Executive Summary",
+    "item_number": 1,
+    "parent_id": "",
+    "description": "The executive summary should be a brief introduction and summary of the roadmap. It should describe the industry, the problem that it encounters, the targets, the strategies, and the indicative investment requirement. It should be able to capture the key points of the roadmap: where are we, where do we want to go and how do we get there.",
+    "level": 0
+  },
+  {
+    "id": 2,
+    "title": "Rationale and Objectives",
+    "item_number": 2,
+    "parent_id": "",
+    "description": "",
+    "level": 0
+  },
+  {
+    "id": 3,
+    "title": "Rationale",
+    "item_number": 2.1,
+    "parent_id": 2,
+    "description": "- The rationale should discuss why there should be a roadmap for the commodity\n - The rationale can include the contribution of the commodity and its product forms to the economy\n - The rationale may also highlight the advantage of investing in this particular commodity industry",
+    "level": 1
+  },
+  {
+    "id": 4,
+    "title": "Objectives",
+    "item_number": 2.2,
+    "parent_id": 2,
+    "description": "This section should define the general objective and enumerate the specific objectives of the roadmap as a document. The actual objectives of the roadmap should be included in the Target Setting section.",
+    "level": 1
+  },
+  {
+    "id": 5,
+    "title": "Industry Situation and Outlook",
+    "item_number": 3,
+    "parent_id": "",
+    "description": "This section should describe and characterize the commodity industry, the current situation and the outlook.",
+    "level": 0
+  },
+  {
+    "id": 6,
+    "title": "Structure",
+    "item_number": 3.1,
+    "parent_id": 5,
+    "description": "",
+    "level": 1
+  },
+  {
+    "id": 7,
+    "title": "Industry definition",
+    "item_number": "3.1.1",
+    "parent_id": 6,
+    "description": "- This section should describe and characterize the industry\n - This should identify the players in the industry and characterize them including the market segments and marketing channels",
+    "level": 2
+  },
+  {
+    "id": 8,
+    "title": "Product Forms",
+    "item_number": "3.1.2",
+    "parent_id": 6,
+    "description": "This section should enumerate and describe the product forms that can be derived from the commodity concerned. This section should also provide the scope of the product forms covered by the roadmap as well as the reason for their consideration.",
+    "level": 2
+  },
+  {
+    "id": 9,
+    "title": "Industry Performance and Outlook",
+    "item_number": 3.2,
+    "parent_id": 5,
+    "description": "",
+    "level": 1
+  },
+  {
+    "id": 10,
+    "title": "Production",
+    "item_number": "3.2.1",
+    "parent_id": 9,
+    "description": "The Industry Performance and Outlook should provide a snapshot of a specific commodity industry based on data that includes trends and areas of growth. This section shall cover both global, showing the position of the country in the world market, and domestic industries. The domestic industry may be further disaggregated into regions and may be useful to show which regions are leading.\n  \n The analysis should cover a minimum of twenty-year period (if the data are available).\n  \n Note: The demand will be covered in the market trends and prospects.\n  \n For consumption, if disaggregation by type of consumption (e.g. food, processing, export, etc.) is available, include it in the analysis.",
+    "level": 2
+  },
+  {
+    "id": 11,
+    "title": "Area Planted/Harvested (Inventory for livestock and poultry)",
+    "item_number": "3.2.2",
+    "parent_id": 9,
+    "description": "The Industry Performance and Outlook should provide a snapshot of a specific commodity industry based on data that includes trends and areas of growth. This section shall cover both global, showing the position of the country in the world market, and domestic industries. The domestic industry may be further disaggregated into regions and may be useful to show which regions are leading.\n  \n The analysis should cover a minimum of twenty-year period (if the data are available).\n  \n Note: The demand will be covered in the market trends and prospects.\n  \n For consumption, if disaggregation by type of consumption (e.g. food, processing, export, etc.) is available, include it in the analysis.",
+    "level": 2
+  },
+  {
+    "id": 12,
+    "title": "Yield (not applicable for livestock, poultry and fisheries)",
+    "item_number": "3.2.3",
+    "parent_id": 9,
+    "description": "The Industry Performance and Outlook should provide a snapshot of a specific commodity industry based on data that includes trends and areas of growth. This section shall cover both global, showing the position of the country in the world market, and domestic industries. The domestic industry may be further disaggregated into regions and may be useful to show which regions are leading.\n  \n The analysis should cover a minimum of twenty-year period (if the data are available).\n  \n Note: The demand will be covered in the market trends and prospects.\n  \n For consumption, if disaggregation by type of consumption (e.g. food, processing, export, etc.) is available, include it in the analysis.",
+    "level": 2
+  },
+  {
+    "id": 13,
+    "title": "Consumption",
+    "item_number": "3.2.4",
+    "parent_id": 9,
+    "description": "The Industry Performance and Outlook should provide a snapshot of a specific commodity industry based on data that includes trends and areas of growth. This section shall cover both global, showing the position of the country in the world market, and domestic industries. The domestic industry may be further disaggregated into regions and may be useful to show which regions are leading.\n  \n The analysis should cover a minimum of twenty-year period (if the data are available).\n  \n Note: The demand will be covered in the market trends and prospects.\n  \n For consumption, if disaggregation by type of consumption (e.g. food, processing, export, etc.) is available, include it in the analysis.",
+    "level": 2
+  },
+  {
+    "id": 14,
+    "title": "Trade (Import and Export)",
+    "item_number": "3.2.5",
+    "parent_id": 9,
+    "description": "The Industry Performance and Outlook should provide a snapshot of a specific commodity industry based on data that includes trends and areas of growth. This section shall cover both global, showing the position of the country in the world market, and domestic industries. The domestic industry may be further disaggregated into regions and may be useful to show which regions are leading.\n  \n The analysis should cover a minimum of twenty-year period (if the data are available).\n  \n Note: The demand will be covered in the market trends and prospects.\n  \n For consumption, if disaggregation by type of consumption (e.g. food, processing, export, etc.) is available, include it in the analysis.",
+    "level": 2
+  },
+  {
+    "id": 15,
+    "title": "Prices",
+    "item_number": "3.2.6",
+    "parent_id": 9,
+    "description": "The Industry Performance and Outlook should provide a snapshot of a specific commodity industry based on data that includes trends and areas of growth. This section shall cover both global, showing the position of the country in the world market, and domestic industries. The domestic industry may be further disaggregated into regions and may be useful to show which regions are leading.\n  \n The analysis should cover a minimum of twenty-year period (if the data are available).\n  \n Note: The demand will be covered in the market trends and prospects.\n  \n For consumption, if disaggregation by type of consumption (e.g. food, processing, export, etc.) is available, include it in the analysis.",
+    "level": 2
+  },
+  {
+    "id": 16,
+    "title": "Analysis of the Commodity Industry",
+    "item_number": 4,
+    "parent_id": "",
+    "description": "",
+    "level": 0
+  },
+  {
+    "id": 17,
+    "title": "Value Chain Map (Structural Analysis)",
+    "item_number": 4.1,
+    "parent_id": 16,
+    "description": "- This section should show the value chain map for the commodity industry. This section should show relevant VC maps.\n - This section should also include the enablers (e.g. government and other institutions).",
+    "level": 1
+  },
+  {
+    "id": 18,
+    "title": "SWOT Analysis",
+    "item_number": 4.2,
+    "parent_id": 16,
+    "description": "- The level of SWOT analysis in this section should be done and shown per VC segment.",
+    "level": 1
+  },
+  {
+    "id": 19,
+    "title": "Farm Income / Costs and Returns Analysis",
+    "item_number": 4.3,
+    "parent_id": 16,
+    "description": "- This section is designed to cover not only farm production but also other product forms\n - This section should pool together the costs and returns analysis of the different players in the VC. This section can also show their relative financial positions.",
+    "level": 1
+  },
+  {
+    "id": 20,
+    "title": "Benchmark Analysis",
+    "item_number": 4.4,
+    "parent_id": 16,
+    "description": "- The benchmarking should be done both locally and globally. This will show achievable performance levels and best practices. Concrete examples will show how to best achieve excellence. (Ordoñez, 2021)\n - The benchmark analysis should compare the local industry's performance to the best practices in the world (or at least among ASEAN countries). The benchmark should cover both farm production and manufacturing. Through benchmarking, industries are better able to gauge what is the best performance to be achieved and how to go about making changes in order to gain a competitive advantage.",
+    "level": 1
+  },
+  {
+    "id": 21,
+    "title": "Local",
+    "item_number": "4.4.1",
+    "parent_id": 20,
+    "description": "",
+    "level": 2
+  },
+  {
+    "id": 22,
+    "title": "International/ Global",
+    "item_number": "4.4.2",
+    "parent_id": 20,
+    "description": "",
+    "level": 2
+  },
+  {
+    "id": 23,
+    "title": "Competitive Analysis",
+    "item_number": 4.5,
+    "parent_id": "",
+    "description": "- Once the benchmarks are known, analysis of the competition must be done. Comparative advantages and disadvantages should be determined for product differentiation and positioning. This again should be done both locally and globally. (Ordoñez, 2021)",
+    "level": 1
+  },
+  {
+    "id": 24,
+    "title": "Local",
+    "item_number": "4.5.1",
+    "parent_id": 23,
+    "description": "",
+    "level": 2
+  },
+  {
+    "id": 25,
+    "title": "International/ Global",
+    "item_number": "4.5.2",
+    "parent_id": 23,
+    "description": "",
+    "level": 2
+  },
+  {
+    "id": 26,
+    "title": "Market Trends and Prospects",
+    "item_number": 5,
+    "parent_id": "",
+    "description": "- With markets being the prime factor in determining production, the factors in the different sectors must be identified. We must look for the future market trends so we can anticipate the production and logistics needs. (Ordoñez, 2021)",
+    "level": 0
+  },
+  {
+    "id": 27,
+    "title": "Key demand drivers",
+    "item_number": 5.1,
+    "parent_id": 26,
+    "description": "- The key demand drivers should list down the major factors (demand shifters) that affect the demand for the commodity and its other product forms.\n - These drivers should give the roadmap a solid foundation in identifying how the market prospects will be in the future. This should also identify factors that could negatively affect the demand.",
+    "level": 1
+  },
+  {
+    "id": 28,
+    "title": "Market Prospects",
+    "item_number": 5.2,
+    "parent_id": 26,
+    "description": "Market prospects are an industry's potential future performance or forecasted ability to compete in a marketplace (both local and international).",
+    "level": 1
+  },
+  {
+    "id": 29,
+    "title": "Local",
+    "item_number": "5.2.1",
+    "parent_id": 28,
+    "description": "",
+    "level": 2
+  },
+  {
+    "id": 30,
+    "title": "International/ Global",
+    "item_number": "5.2.2",
+    "parent_id": 28,
+    "description": "",
+    "level": 2
+  },
+  {
+    "id": 31,
+    "title": "6. SWOT Analysis (Industry level)",
+    "item_number": 6,
+    "parent_id": "",
+    "description": "This is the popular method used in identifying internal strengths (S) and weaknesses (W), then matching these with the external opportunities (O) and threats (T). But these should be done with accurate data and competent analysis to come up with good directions. (Ordoñez, 2021)",
+    "level": 0
+  },
+  {
+    "id": 32,
+    "title": "Target Setting",
+    "item_number": 7,
+    "parent_id": "",
+    "description": "This section should contain the vision, mission, goals and objectives (indicating the targets) at various timeframes: 2021-2025 (end of NAFMIP), 2026-2030 (end of SDG) and 2031-2040 (end of Ambisyon 2040).",
+    "level": 0
+  },
+  {
+    "id": 33,
+    "title": "Vision",
+    "item_number": 7.1,
+    "parent_id": 32,
+    "description": "The vision describes the ideal conditions for the industry.",
+    "level": 1
+  },
+  {
+    "id": 34,
+    "title": "Mission",
+    "item_number": 7.2,
+    "parent_id": 32,
+    "description": "The mission statement describes what the industry is going to do, and why it is going to do that. The mission statement must be: concise, outcome-oriented, and inclusive.",
+    "level": 1
+  },
+  {
+    "id": 35,
+    "title": "Goals, Objectives, and Targets (Matrix form)",
+    "item_number": 7.3,
+    "parent_id": 32,
+    "description": "The goals, objectives and targets must be presented in matrix form in terms of the following timeframes:\n  Short-Term (2021-2025) - coincides with the NAFMIP implementation (DA)\n Medium-Term (2026-2030) - coincides with the SDG 2030 deadline (United Nations)\n Long-Term (2031-2040) - coincides with the AmBisyon 2040 (NEDA)",
+    "level": 1
+  },
+  {
+    "id": 36,
+    "title": "Recommendations for Policies, Strategies and Programs",
+    "item_number": 8,
+    "parent_id": "",
+    "description": "This section shows a matrix of strategies, policies and programs needed to achieve the objectives of the roadmap defining the stakeholders responsible for their attainment. These policies, strategies and programs should be accompanied by key result areas (KRAs) and key performance indicators (KPIs) as well as timeframe spread across short-, medium- and long-terms.\n  \n The matrix should contain the following:\n  Strategies/Policies/Programs\n Issues/Constraints/Objectives being addressed\n Timeframe (short-, medium- and long-term)\n Who will do it? (Lead, Support)",
+    "level": 0
+  },
+  {
+    "id": 37,
+    "title": "Industry Cluster Governance Network (Implementation Team)",
+    "item_number": 9,
+    "parent_id": "",
+    "description": "This section provides a general governance network for the implementation and monitoring of the roadmap composed of representatives from the different stakeholders in the industry.\n  \n This section should be presented in matrix form showing:\n  Role\n Actors\n Responsibilities",
+    "level": 0
+  }
+]

@@ -5,6 +5,7 @@ namespace App\Http\Livewire;
 use App\Models\Commodity;
 use App\Models\Focal;
 use App\Models\Office;
+use App\Models\Roadmap;
 use App\Traits\WithModal;
 use Livewire\Component;
 
@@ -12,11 +13,11 @@ class Focals extends Component
 {
     use WithModal;
 
-    public  $commodities,
+    public  $roadmaps,
             $offices,
             $statuses,
             $status,
-            $commodity_id,
+            $roadmap_id,
             $name,
             $designation,
             $email,
@@ -29,7 +30,7 @@ class Focals extends Component
 
     protected $rules = [
         'status'            => 'required|in:permanent,alternate',
-        'commodity_id'      => 'required',
+        'roadmap_id'        => 'required',
         'name'              => 'required',
         'designation'       => 'required',
         'email'             => 'required',
@@ -48,7 +49,7 @@ class Focals extends Component
     public function render()
     {
         $this->offices = Office::select('id','name')->get();
-        $this->commodities = Commodity::select('id','name')->get();
+        $this->roadmaps = Roadmap::select('id','name')->get();
         $this->statuses = ['permanent','alternate'];
 
         return view('livewire.focals.index',[
@@ -59,7 +60,7 @@ class Focals extends Component
     public function resetInputFields()
     {
         $this->status = '';
-        $this->commodity_id = '';
+        $this->roadmap_id = '';
         $this->name = '';
         $this->designation = '';
         $this->email = '';
@@ -97,7 +98,7 @@ class Focals extends Component
         $focal = Focal::findOrFail($id);
 
         $this->status = $focal->status;
-        $this->commodity_id = $focal->commodity_id;
+        $this->roadmap_id = $focal->roadmap_id;
         $this->name = $focal->name;
         $this->designation = $focal->designation;
         $this->email = $focal->email;

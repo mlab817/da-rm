@@ -34,35 +34,35 @@
                 @include('livewire.confirm-delete', ['id' => $report_id])
             @endif
 
-            <table class="min-w-full divide-y divide-gray-200">
-                <thead>
+            <x-table>
+                <x-thead>
                     <tr class="bg-gray-100">
-                        <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
+                        <x-th>
                             Report Period
-                        </th>
-                        <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
+                        </x-th>
+                        <x-th>
                             Office
-                        </th>
-                        <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
+                        </x-th>
+                        <x-th>
                             Commodities
-                        </th>
-                        <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
+                        </x-th>
+                        <x-th>
                             Attachment
-                        </th>
-                        <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
+                        </x-th>
+                        <x-th>
                             Updated By
-                        </th>
+                        </x-th>
                         <th scope="col" class="relative px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
                             Action
                         </th>
                     </tr>
-                </thead>
-                <tbody class="bg-white divide-y divide-gray-200">
+                </x-thead>
+                <x-tbody>
                 @forelse($reports as $report)
                     <tr>
-                        <td class="px-6 py-4 flex-wrap text-sm text-center">
+                        <x-td>
                             {{ $report->report_period->name ?? '' }}
-                        </td>
+                        </x-td>
                         <td class="px-6 py-4 flex-wrap text-sm">
                             {{ $report->office ? $report->office->short_name : '' }}
                         </td>
@@ -93,8 +93,8 @@
                         <td colspan="8" class="px-3 py-3 text-center text-sm whitespace-nowrap">No reports found.</td>
                     </tr>
                 @endforelse
-                </tbody>
-            </table>
+                </x-tbody>
+            </x-table>
             {{ $reports->links() }}
         </div>
     </div>

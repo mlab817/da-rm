@@ -16,7 +16,7 @@ class CreateFocalsTable extends Migration
         Schema::create('focals', function (Blueprint $table) {
             $table->id();
             $table->enum('status',['permanent','alternate'])->nullable();
-            $table->foreignId('commodity_id')->nullable()->constrained('commodities')->nullOnDelete();
+            $table->foreignId('roadmap_id')->nullable()->constrained('roadmaps')->nullOnDelete();
             $table->string('name', 50);
             $table->string('designation', 50)->nullable();
             $table->string('email', 50)->nullable();

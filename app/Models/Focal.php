@@ -14,7 +14,7 @@ class Focal extends Model
 
     protected $fillable = [
         'status',
-        'commodity_id',
+        'roadmap_id',
         'name',
         'designation',
         'email',
@@ -33,6 +33,11 @@ class Focal extends Model
     public function commodity(): BelongsTo
     {
         return $this->belongsTo(Commodity::class);
+    }
+
+    public function roadmap(): BelongsTo
+    {
+        return $this->belongsTo(Roadmap::class);
     }
 
     public function toSearchableArray(): array
