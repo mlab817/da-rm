@@ -8,6 +8,7 @@ use App\Models\Report;
 use App\Models\ReportPeriod;
 use App\Models\Upload;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 
@@ -92,7 +93,9 @@ class ReportAddForm extends Component
         if ($this->file) {
             $title = time() . '_' . $report->office->name . ' as of ' . $report->report_period->name;
 
-            $upload = $this->file->storePubliclyAs('reports', $title . '.' .$this->file->extension());
+//            $upload = Storage::disk('dropbox')->put('reports',$this->file);
+//            $upload = $this->file->storeAs('reports', $title . '.' .$this->file->extension(), 'dropbox');
+            $upload = Storage::disk('google')->putFileAs('reports', $this->file, $title);
             // create upload entry
             $uploadEntry = Upload::create([
                 'upload_type_id'    => 2,

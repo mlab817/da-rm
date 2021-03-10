@@ -180,6 +180,10 @@ return [
         \Laravel\Scout\ScoutServiceProvider::class,
         \TeamTNT\Scout\TNTSearchScoutServiceProvider::class,
 
+        // App\Providers\DropboxServiceProvider::class,
+
+        App\Providers\GoogleServiceProvider::class,
+
     ],
 
     /*
