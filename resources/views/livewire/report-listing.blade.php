@@ -14,6 +14,7 @@
                 <tr>
                     <x-th>No.</x-th>
                     <x-th>Report Period</x-th>
+                    <x-th>Office</x-th>
                     <x-th>Title</x-th>
                     <x-th>Attachment</x-th>
                     <x-th>Actions</x-th>
@@ -23,6 +24,7 @@
                 @foreach ($reports as $item)
                     <tr>
                         <x-td>{{ $item->id }}</x-td>
+                        <x-td>{{ $item->report_period->name ?? '' }}</x-td>
                         <x-td>{{ $item->office->name }}</x-td>
                         <x-td>{{ $item->title }}</x-td>
                         <x-td>
