@@ -63,9 +63,9 @@ class FocalAddForm extends Component
         'designation'       => 'required|max:50',
         'email'             => 'required|max:50',
         'office_id'         => 'required',
-        'telephone_number'  => 'required|max:50',
-        'fax_number'        => 'required|max:50',
-        'mobile_number'     => 'required|max:50',
+//        'telephone_number'  => 'required|max:50',
+//        'fax_number'        => 'required|max:50',
+//        'mobile_number'     => 'required|max:50',
         'viber_number'      => 'required|max:50',
     ];
 
