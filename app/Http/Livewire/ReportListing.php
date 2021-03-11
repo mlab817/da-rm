@@ -6,12 +6,10 @@ use App\Models\Report;
 use App\Models\ReportPeriod;
 use App\Traits\WithModal;
 use Livewire\Component;
-use Livewire\WithFileUploads;
 use Livewire\WithPagination;
 
 class ReportListing extends Component
 {
-    use WithFileUploads;
     use WithPagination;
     use WithModal;
 

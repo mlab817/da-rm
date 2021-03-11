@@ -1,7 +1,9 @@
 <x-slot name="header">
-    <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-        Reports
-    </h2>
+    <x-title>
+        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+            Reports
+        </h2>
+    </x-title>
 </x-slot>
 
 <div class="py-12">
@@ -73,7 +75,7 @@
                         </td>
                         <td class="px-6 py-4 flex-wrap text-sm text-center">
                             @if ($report->upload)
-                                <a target="_blank" href="{{ \Illuminate\Support\Facades\Storage::url($report->upload->url ?? '') }}">Report</a>
+{{--                                <a target="_blank" href="{{ \Illuminate\Support\Facades\Storage::url($report->upload->url ?? '') }}">Report</a>--}}
                             @endif
                         </td>
                         <td class="px-6 py-4 flex-wrap text-sm">
