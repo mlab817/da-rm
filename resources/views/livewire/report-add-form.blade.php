@@ -31,8 +31,9 @@
                                 id="report_period_id"
                                 class="focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded sm:text-sm border-gray-300"
                                 placeholder="Select Report Period"
-                                wire:model="report_period_id">
-                                <option value="" disabled>Select Report Period</option>
+                                wire:model.defer="report_period_id"
+                                name="report_period_id">
+                                <option value="">Select Report Period</option>
                                 @foreach ($report_periods as $report_period)
                                     <option value="{{ $report_period->id }}">{{ $report_period->name }}</option>
                                 @endforeach
@@ -53,8 +54,9 @@
                                 id="office_id"
                                 class="focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded sm:text-sm border-gray-300"
                                 placeholder="Select Office"
-                                wire:model="office_id">
-                                <option value="" disabled>Select Office</option>
+                                wire:model="office_id"
+                                name="office_id">
+                                <option value="">Select Office</option>
                                 @foreach ($offices as $item)
                                     <option value="{{ $item->id }}">{{ $item->name }}</option>
                                 @endforeach
@@ -73,7 +75,7 @@
                         <div class="px-2 mt-1">
                             @foreach($commodities as $item)
                                 <label class="inline-flex items-center w-full">
-                                    <input class="form-check" type="checkbox" value="{{ $item->id }}" wire:model="commodity_id">
+                                    <input id="commodity_id-{{ $item->id }}" class="form-check" type="checkbox" value="{{ $item->id }}" wire:model.defer="commodity_id.{{ $item->id }}" name="commodity_id">
                                     <span class="ml-2">{{ $item->name }}</span>
                                 </label>
                             @endforeach
@@ -95,7 +97,7 @@
                                 class="focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded sm:text-sm border-gray-300"
                                 placeholder="Attachment"
                                 wire:model="file">
-                            <div wire:loading wire:target="file">Uploading...</div>
+                            <div wire:loading wire:target="file" class="text-sm text-gray-400">Uploading...</div>
                         </div>
                         @error('file')
                         <p class="mt-2 text-sm text-red-500">

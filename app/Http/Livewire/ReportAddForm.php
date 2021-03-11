@@ -28,11 +28,11 @@ class ReportAddForm extends Component
 
     public $file = null;
 
-    public $offices;
-
-    public $commodities;
-
-    public $report_periods;
+//    public $offices;
+//
+//    public $commodities;
+//
+//    public $report_periods;
 
     public $pageTitle = 'Add/Edit Report';
 
@@ -117,10 +117,10 @@ class ReportAddForm extends Component
 
     public function render()
     {
-        $this->offices = Office::all();
-        $this->commodities = $this->office_id ? Commodity::where('office_id', $this->office_id)->get() : Commodity::all();
-        $this->report_periods = ReportPeriod::all();
-
-        return view('livewire.report-add-form');
+        return view('livewire.report-add-form',[
+            'offices'       => Office::all(),
+            'commodities'   => $this->office_id ? Commodity::where('office_id', $this->office_id)->get() : Commodity::all(),
+            'report_periods'=> ReportPeriod::all(),
+        ]);
     }
 }
