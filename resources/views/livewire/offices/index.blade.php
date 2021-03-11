@@ -20,29 +20,29 @@
             @if($isOpen)
                 @include('livewire.offices.create')
             @endif
-            <table class="table-fixed w-full">
+            <x-table>
                 <thead>
-                <tr class="bg-gray-100">
-                    <th class="px-4 py-2 w-20">No.</th>
-                    <th class="px-4 py-2">Name</th>
-                    <th class="px-4 py-2">Short Name</th>
-                    <th class="px-4 py-2">Action</th>
-                </tr>
+                    <tr class="bg-gray-100">
+                        <th class="px-4 py-2 w-20">No.</th>
+                        <th class="px-4 py-2">Name</th>
+                        <th class="px-4 py-2">Short Name</th>
+                        <th class="px-4 py-2">Action</th>
+                    </tr>
                 </thead>
-                <tbody>
+                <x-tbody>
                 @foreach($offices as $office)
                     <tr>
-                        <td class="border px-4 py-2">{{ $office->id }}</td>
-                        <td class="border px-4 py-2">{{ $office->name }}</td>
-                        <td class="border px-4 py-2">{{ $office->short_name}}</td>
-                        <td class="border px-4 py-2">
+                        <x-td class="border px-4 py-2">{{ $office->id }}</x-td>
+                        <x-td class="border px-4 py-2">{{ $office->name }}</x-td>
+                        <x-td class="border px-4 py-2">{{ $office->short_name}}</x-td>
+                        <x-td class="border px-4 py-2">
                             <button wire:click="edit({{ $office->id }})" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Edit</button>
                             <button wire:click="delete({{ $office->id }})" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">Delete</button>
-                        </td>
+                        </x-td>
                     </tr>
                 @endforeach
-                </tbody>
-            </table>
+                </x-tbody>
+            </x-table>
         </div>
     </div>
 </div>
