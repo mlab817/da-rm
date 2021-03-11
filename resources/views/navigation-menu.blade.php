@@ -24,11 +24,14 @@
                     <x-jet-nav-link href="{{ route('commodities') }}" :active="request()->routeIs('commodities')">
                         {{ __('Commodities') }}
                     </x-jet-nav-link>
-                    <x-jet-nav-link href="{{ route('reports') }}" :active="request()->routeIs('reports')">
+                    <x-jet-nav-link href="{{ route('reports.index') }}" :active="request()->routeIs('reports.index')">
                         {{ __('Reports') }}
                     </x-jet-nav-link>
                     <x-jet-nav-link href="{{ route('roadmaps.index') }}" :active="request()->routeIs('roadmaps.index')">
                         {{ __('Roadmaps') }}
+                    </x-jet-nav-link>
+                    <x-jet-nav-link href="{{ route('uploads.index') }}" :active="request()->routeIs('uploads.index')">
+                        {{ __('Uploads') }}
                     </x-jet-nav-link>
                 </div>
             </div>
@@ -165,11 +168,14 @@
             <x-jet-responsive-nav-link href="{{ route('commodities') }}" :active="request()->routeIs('commodities')">
                 {{ __('Commodities') }}
             </x-jet-responsive-nav-link>
-            <x-jet-responsive-nav-link href="{{ route('reports') }}" :active="request()->routeIs('reports')">
+            <x-jet-responsive-nav-link href="{{ route('reports.index') }}" :active="request()->routeIs('reports.index')">
                 {{ __('Reports') }}
             </x-jet-responsive-nav-link>
             <x-jet-responsive-nav-link href="{{ route('roadmaps.index') }}" :active="request()->routeIs('roadmaps.index')">
                 {{ __('Roadmaps') }}
+            </x-jet-responsive-nav-link>
+            <x-jet-responsive-nav-link href="{{ route('uploads.index') }}" :active="request()->routeIs('uploads.index')">
+                {{ __('Uploads') }}
             </x-jet-responsive-nav-link>
         </div>
 

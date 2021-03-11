@@ -17,7 +17,8 @@ class CreateUploadsTable extends Migration
             $table->id();
             $table->foreignId('upload_type_id')->nullable()->constrained()->nullOnDelete();
             $table->text('title');
-            $table->text('url');
+            $table->text('path')->nullable();
+            $table->text('url')->nullable();
             $table->foreignId('user_id')->nullable();
             $table->timestamps();
         });

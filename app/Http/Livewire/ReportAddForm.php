@@ -93,18 +93,18 @@ class ReportAddForm extends Component
         if ($this->file) {
             $title = time() . '_' . $report->office->name . ' as of ' . $report->report_period->name;
 
-//            $upload = Storage::disk('dropbox')->put('reports',$this->file);
-//            $upload = $this->file->storeAs('reports', $title . '.' .$this->file->extension(), 'dropbox');
-            $upload = Storage::disk('google')->putFileAs('reports', $this->file, $title);
-            // create upload entry
+            $upload = Storage::disk('google')->putFileAs(config('folders.progress-reports'), $this->file, $title . '.' . $this->file->extension());
+
             $uploadEntry = Upload::create([
                 'upload_type_id'    => 2,
                 'title'             => $title,
-                'url'               => $upload,
+                'path'              => $upload,
+                'url'               => Storage::disk('google')->url($upload),
                 'user_id'           => Auth::id(),
             ]);
             // add to report
             $report->upload_id = $uploadEntry->id;
+
             $report->save();
         }
         // return flash
@@ -112,7 +112,7 @@ class ReportAddForm extends Component
             $this->report_id ? 'Successfully updated report' : 'Successfully added report'
         );
         // reset fields
-        return response()->redirectToRoute('reports');
+        return response()->redirectToRoute('reports.index');
     }
 
     public function render()

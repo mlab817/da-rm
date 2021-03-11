@@ -12,12 +12,9 @@ class ComplianceReviewForm extends Component
 
     public $outline_items;
 
-    public $compliance_reviews;
-
     public function mount(RoadmapVersion $roadmapVersion)
     {
         $this->roadmap_version = $roadmapVersion;
-        $this->compliance_reviews = $roadmapVersion->compliance_reviews;
     }
 
     public function store()

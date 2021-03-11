@@ -4,6 +4,7 @@ namespace App\Http\Livewire;
 
 use App\Models\Report;
 use App\Models\RoadmapVersion;
+use Illuminate\Support\Facades\Storage;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 
@@ -49,7 +50,9 @@ class RoadmapVersionAdd extends Component
     {
         $this->validate();
 
-        $file = $this->attachment->storePublicly('roadmaps');
+        $title = time() . '_' . $this->attachment->getClientOriginalName();
+
+        $file = Storage::disk('google')->putFileAs(config('folders.roadmaps'), $this->attachment, $title);
 
         // if successfully saved, create roadmap version entry
         if ($file) {
@@ -57,7 +60,7 @@ class RoadmapVersionAdd extends Component
                 'report_id' => $this->report_id,
                 'roadmap_id'=> $this->roadmap_id,
                 'title'     => $this->title,
-                'url'       => $file,
+                'url'       => Storage::disk('google')->url($file),
                 'date'      => $this->date
             ]);
         }

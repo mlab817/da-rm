@@ -18,6 +18,7 @@ class CreateComplianceReviewsTable extends Migration
         Schema::create('compliance_reviews', function (Blueprint $table) {
             $table->id();
             $table->foreignId('roadmap_version_id')->constrained()->cascadeOnDelete(); // delete if the roadmap is deleted
+            $table->foreignId('outline_item_id')->constrained()->cascadeOnDelete();
             $table->text('findings')->nullable();
             $table->text('recommendations')->nullable();
             $table->text('remarks')->nullable();

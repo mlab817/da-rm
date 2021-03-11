@@ -9,8 +9,10 @@ use App\Http\Livewire\Offices;
 use App\Http\Livewire\ReportAddForm;
 use App\Http\Livewire\ReportListing;
 use App\Http\Livewire\RoadmapAddForm;
+use App\Http\Livewire\RoadmapComplianceReview;
 use App\Http\Livewire\RoadmapListing;
 use App\Http\Livewire\RoadmapShow;
+use App\Http\Livewire\UploadListing;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -33,19 +35,29 @@ Route::group(['prefix' => '/','middleware'=>'auth:sanctum'], function() {
         return view('welcome');
     })->name('welcome');
     Route::get('offices', Offices::class)->name('offices');
-    Route::get('focals/{focal}/edit', FocalAddForm::class)->name('focals.edit');
-    Route::get('focals/create', FocalAddForm::class)->name('focals.create');
-    Route::get('focals', FocalListing::class)->name('focals');
+
     Route::get('commodities', Commodities::class)->name('commodities');
 
-    Route::get('/reports/create', ReportAddForm::class)->name('reports.create');
-    Route::get('/reports/{report}/edit', ReportAddForm::class)->name('reports.edit');
-    Route::get('/reports', ReportListing::class)->name('reports');
+    Route::group(['prefix' => 'focals'], function() {
+        Route::get('{focal}/edit', FocalAddForm::class)->name('focals.edit');
+        Route::get('create', FocalAddForm::class)->name('focals.create');
+        Route::get('/', FocalListing::class)->name('focals');
+    });
 
-    Route::get('/roadmaps/create', RoadmapAddForm::class)->name('roadmaps.create');
-    Route::get('/roadmaps/{roadmap}/edit', RoadmapAddForm::class)->name('roadmaps.edit');
-    Route::get('/roadmaps/{roadmap}', RoadmapShow::class)->name('roadmaps.show');
-    Route::get('/roadmaps', RoadmapListing::class)->name('roadmaps.index');
+    Route::group(['prefix' => 'progress-reports'], function() {
+        Route::get('create', ReportAddForm::class)->name('reports.create');
+        Route::get('{report}/edit', ReportAddForm::class)->name('reports.edit');
+        Route::get('/', ReportListing::class)->name('reports.index');
+    });
 
-    Route::get('/compliance-review/{roadmap_version}', ComplianceReviewForm::class)->name('compliance.review');
+    Route::group(['prefix' => 'roadmaps'], function() {
+        Route::get('/create', RoadmapAddForm::class)->name('roadmaps.create');
+        Route::get('/{roadmap}/edit', RoadmapAddForm::class)->name('roadmaps.edit');
+        Route::get('/{roadmap}', RoadmapShow::class)->name('roadmaps.show');
+        Route::get('/', RoadmapListing::class)->name('roadmaps.index');
+    });
+
+    Route::get('/compliance-review/{roadmap_version}', RoadmapComplianceReview::class)->name('compliance.review');
+
+    Route::get('/uploads', UploadListing::class)->name('uploads.index');
 });

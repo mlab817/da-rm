@@ -12,6 +12,7 @@ class Upload extends Model
     protected $fillable = [
         'upload_type_id',
         'title',
+        'path',
         'url',
         'user_id',
     ];

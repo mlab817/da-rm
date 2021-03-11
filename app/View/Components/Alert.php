@@ -7,8 +7,6 @@ use Illuminate\View\Component;
 
 class Alert extends Component
 {
-    public $status;
-
     public $message;
 
     /**
@@ -17,9 +15,8 @@ class Alert extends Component
      * @param $title
      * @param $message
      */
-    public function __construct($status, $message)
+    public function __construct($message)
     {
-        $this->status = $status;
         $this->message = $message;
     }
 
@@ -32,9 +29,6 @@ class Alert extends Component
     {
         return <<<'blade'
 <div class="alert-success" role="alert">
-    <strong class="font-bold">
-        {{ $status }}
-    </strong>
     <span class="block sm:inline">{{ $message }}</span>
     <span class="absolute top-0 bottom-0 right-0 px-4 py-3">
         <svg class="fill-current h-6 w-6 text-red-500" role="button" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">

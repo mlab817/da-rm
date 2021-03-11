@@ -20,6 +20,7 @@
                         <x-th>Title</x-th>
                         <x-th>Version</x-th>
                         <x-th>Attachment</x-th>
+                        <x-th>Review</x-th>
                         <x-th></x-th>
                     </tr>
                     </thead>
@@ -36,12 +37,15 @@
                                     {{ $item->version }}
                                 </x-td>
                                 <x-td>
-                                    <a target="_blank" class="text-center" href="{{ \Illuminate\Support\Facades\Storage::url($item->url) }}">
+                                    <a target="_blank" class="text-center" href="{{ $item->url }}">
                                         <svg class="inline-flex h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.172 7l-6.586 6.586a2 2 0 102.828 2.828l6.414-6.586a4 4 0 00-5.656-5.656l-6.415 6.585a6 6 0 108.486 8.486L20.5 13" />
                                         </svg>
                                         Attachment
                                     </a>
+                                </x-td>
+                                <x-td>
+                                    <a class="btn btn-primary" href="{{ route('compliance.review', $item->id) }}">Review</a>
                                 </x-td>
                                 <x-td>
                                     <button class="text-black-50" type="button" wire:click="deleteVersion({{ $item->id }})">

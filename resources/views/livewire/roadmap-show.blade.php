@@ -1,6 +1,6 @@
 <x-slot name="header">
     <x-title>
-        {{ __('Roadmap') }}
+        {{ $roadmap->commodity->name }} {{ __('Roadmap') }}
     </x-title>
 </x-slot>
 
@@ -82,18 +82,22 @@
                         </thead>
                         <x-tbody>
                             @foreach ($focals as $item)
-                                <x-td>
-                                    {{ $item->name }}
-                                    <p class="text-sm">
-                                        {{ $item->designation }}
-                                    </p>
-                                </x-td>
-                                <x-td>
-                                    {{ $item->email }}
-                                </x-td>
-                                <x-td>
-                                    {{ $item->viber_number }}
-                                </x-td>
+                                <tr>
+                                    <x-td>
+                                        <span class="font-weight-bold tracking-wide text-uppercase">
+                                            {{ $item->name }}
+                                        </span>
+                                        <p class="text-sm text-gray-500">
+                                            {{ $item->designation }}
+                                        </p>
+                                    </x-td>
+                                    <x-td>
+                                        {{ $item->email }}
+                                    </x-td>
+                                    <x-td>
+                                        {{ $item->viber_number }}
+                                    </x-td>
+                                </tr>
                             @endforeach
                         </x-tbody>
                     </x-table>
@@ -115,4 +119,12 @@
     </div>
 
     @livewire('roadmap-version-add',['versions' => $roadmap->roadmap_versions, 'roadmap_id' => $roadmap->id ])
+
+    <div class="hidden sm:block">
+        <div class="py-8">
+            <div class="border-t border-gray-200"></div>
+        </div>
+    </div>
+
+    @livewire('roadmap-compliance-preview', ['roadmap_id' => $roadmap->id])
 </x-content>
