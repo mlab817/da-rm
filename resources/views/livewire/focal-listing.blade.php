@@ -35,7 +35,7 @@
                 @forelse($focals as $item)
                     <tr>
                         <td class="px-4 py-2 text-sm">{{ $item->id }}</td>
-                        <td class="px-4 py-2 text-sm">{{ $item->office ? $item->office->name : '' }}</td>
+                        <td class="px-4 py-2 text-sm">{{ $item->office->short_name ?? '' }}</td>
                         <td class="px-4 py-2 text-sm">{{ $item->roadmap ? $item->roadmap->commodity->name : '' }}</td>
                         <td class="px-4 py-2 text-sm">{{ $item->name }}</td>
                         <td class="px-4 py-2 text-sm">{{ $item->designation }}</td>
