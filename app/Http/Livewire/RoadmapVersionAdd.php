@@ -15,11 +15,11 @@ class RoadmapVersionAdd extends Component
     public $versions;
 
     public $roadmap_id,
-            $date,
-            $title,
-            $attachment,
-            $url,
-            $report_id;
+            $date = '',
+            $title = '',
+            $attachment = '',
+            $url = '',
+            $report_id = '';
 
     public $uploadVersionDialog = false;
 
