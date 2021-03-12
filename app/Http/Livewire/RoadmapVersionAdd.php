@@ -24,11 +24,15 @@ class RoadmapVersionAdd extends Component
     public $uploadVersionDialog = false;
 
     protected $rules = [
-        'report_id' => 'required',
         'date'      => 'required',
         'attachment'=> 'required|mimes:pdf|max:12288',
         'title'     => 'required',
     ];
+
+    public function updated($propertyName)
+    {
+        $this->validateOnly($propertyName);
+    }
 
     public function uploadFile()
     {

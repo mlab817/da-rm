@@ -82,23 +82,23 @@
                             <option value="{{ $report->id }}">{{ $report->title }}</option>
                         @endforeach
                     </select>
-                    @error('report_id') <p>{{ $message }}</p> @enderror
+                    @error('report_id') <p class="text-red-800">{{ $message }}</p> @enderror
                 </div>
                 <div class="mb-2">
                     <label for="title" class="py-1 text-sm font-semibold">Title</label>
                     <input type="text" wire:model.lazy="title" id="title" class="w-full">
-                    @error('title') <p>{{ $message }}</p> @enderror
+                    @error('title') <p class="text-red-800">{{ $message }}</p> @enderror
                 </div>
                 <div class="mb-2">
                     <label for="date" class="py-1 text-sm font-semibold">Date</label>
                     <input type="date" wire:model="date" id="date" class="w-full">
-                    @error('date') <p>{{ $message }}</p> @enderror
+                    @error('date') <p class="text-red-800">{{ $message }}</p> @enderror
                 </div>
                 <div class="mb-2">
                     <label for="attachment" class="py-1 text-sm font-semibold">Attachment</label>
                     <input type="file" wire:model="attachment" id="attachment" class="w-full" accept="application/pdf">
                     <p class="text-sm" wire:loading wire:target="attachment">Uploading...</p>
-                    @error('attachment') <p>{{ $message }}</p> @enderror
+                    @error('attachment') <p class="text-red-800">{{ $message }}</p> @enderror
                 </div>
             </x-slot>
             <x-slot name="footer">
