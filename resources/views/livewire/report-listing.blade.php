@@ -25,7 +25,7 @@
                     <tr>
                         <x-td>{{ $item->id }}</x-td>
                         <x-td>{{ $item->report_period->name ?? '' }}</x-td>
-                        <x-td>{{ $item->office->name }}</x-td>
+                        <x-td>{{ $item->office->name ?? '' }}</x-td>
                         <x-td>{{ $item->title }}</x-td>
                         <x-td>
                             <a class="inline-flex items-center" href="{{ $item->upload->url ?? '#' }}" @if($item->upload) target="_blank" @endif>
