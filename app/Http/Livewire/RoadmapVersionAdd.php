@@ -24,6 +24,7 @@ class RoadmapVersionAdd extends Component
     public $uploadVersionDialog = false;
 
     protected $rules = [
+        'report_id' => 'required',
         'date'      => 'required',
         'attachment'=> 'required|mimes:pdf|max:20480',
         'title'     => 'required',
@@ -70,6 +71,8 @@ class RoadmapVersionAdd extends Component
         }
 
         session()->flash('message','Successfully added roadmap version');
+
+        $this->cancel();
     }
 
     public function deleteVersion($id)
