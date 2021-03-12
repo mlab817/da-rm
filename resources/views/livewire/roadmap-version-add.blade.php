@@ -86,7 +86,7 @@
                 </div>
                 <div class="mb-2">
                     <label for="title" class="py-1 text-sm font-semibold">Title</label>
-                    <input type="text" wire:model="title" id="title" class="w-full">
+                    <input type="text" wire:model.lazy="title" id="title" class="w-full">
                     @error('title') <p>{{ $message }}</p> @enderror
                 </div>
                 <div class="mb-2">
