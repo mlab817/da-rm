@@ -83,7 +83,9 @@ return [
 
     'temporary_file_upload' => [
         'disk' => 'google',        // Example: 'local', 's3'              Default: 'default'
-        'rules' => null,       // Example: ['file', 'mimes:png,jpg']  Default: ['required', 'file', 'max:12288'] (12MB)
+        'rules' => [
+            'max:20480'
+        ],       // Example: ['file', 'mimes:png,jpg']  Default: ['required', 'file', 'max:12288'] (12MB)
         'directory' => '1QGJS3a_lxOgl4zncm35uwpPwmX8vrTja',   // Example: 'tmp'                      Default  'livewire-tmp'
         'middleware' => 'throttle:5,1',  // Example: 'throttle:5,1'             Default: 'throttle:60,1'
         'preview_mimes' => [   // Supported file types for temporary pre-signed file URLs.
