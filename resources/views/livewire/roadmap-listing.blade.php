@@ -52,6 +52,8 @@
             @endforelse
             </tbody>
         </x-table>
-        {{ $roadmaps->links() }}
+        <div class="my-3">
+            {{ $roadmaps->links() }}
+        </div>
     </div>
 </x-content>
