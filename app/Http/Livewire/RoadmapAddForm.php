@@ -72,6 +72,9 @@ class RoadmapAddForm extends Component
 
         // flash message in session
         session()->flash('message','Successfully added roadmap');
+
+        // redirect to roadmap index
+        return redirect()->route('roadmaps.index');
     }
 
     public function resetInputFields()
