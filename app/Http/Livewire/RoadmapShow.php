@@ -11,10 +11,13 @@ class RoadmapShow extends Component
 
     public $focals;
 
-    public function mount(Roadmap $roadmap)
+    public $roadmap_updates;
+
+    public function mount($roadmap)
     {
-        $this->roadmap = $roadmap;
-        $this->focals = $roadmap->focals;
+        $this->roadmap          = Roadmap::where('id',$roadmap)->with(['focals','roadmap_updates','roadmap_versions'])->first();
+        $this->focals           = $this->roadmap->focals;
+        $this->roadmap_updates  = $this->roadmap->roadmap_updates;
     }
 
     public function render()

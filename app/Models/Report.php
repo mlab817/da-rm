@@ -70,11 +70,10 @@ class Report extends Model
     public function toSearchableArray()
     {
         return [
-            'id' => $this->id,
-            'participants_involved' => $this->participants_involved,
-            'activities_done' => $this->activities_done,
-            'activities_ongoing' => $this->activities_ongoing,
-            'overall_status' => $this->overall_status,
+            'id'            => $this->id,
+            'report_period' => $this->report_period->name ?? '',
+            'office'        => $this->office->name ?? '',
+            'title'         => $this->title,
         ];
     }
 }

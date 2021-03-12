@@ -22,6 +22,10 @@ class RoadmapUpdate extends Model
         'roadmap_version_id',
     ];
 
+    protected $with = [
+        'report',
+    ];
+
     public function roadmap(): BelongsTo
     {
         return $this->belongsTo(Roadmap::class);

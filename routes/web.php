@@ -12,6 +12,7 @@ use App\Http\Livewire\RoadmapAddForm;
 use App\Http\Livewire\RoadmapComplianceReview;
 use App\Http\Livewire\RoadmapListing;
 use App\Http\Livewire\RoadmapShow;
+use App\Http\Livewire\RoadmapUpdateAdd;
 use App\Http\Livewire\UploadListing;
 use Illuminate\Support\Facades\Route;
 
@@ -60,4 +61,6 @@ Route::group(['prefix' => '/','middleware'=>'auth:sanctum'], function() {
     Route::get('/compliance-review/{roadmap_version}', RoadmapComplianceReview::class)->name('compliance.review');
 
     Route::get('/uploads', UploadListing::class)->name('uploads.index');
+
+    Route::get('/roadmap-updates/create', RoadmapUpdateAdd::class)->name('roadmap-updates.create');
 });

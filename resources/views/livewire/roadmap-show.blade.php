@@ -51,11 +51,7 @@
         </div>
     </div>
 
-    <div class="hidden sm:block">
-        <div class="py-8">
-            <div class="border-t border-gray-200"></div>
-        </div>
-    </div>
+    <x-divider></x-divider>
 
     <div class="md:grid md:grid-cols-3 md:gap-6">
         <div class="md:col-span-1">
@@ -112,19 +108,16 @@
         </div>
     </div>
 
-    <div class="hidden sm:block">
-        <div class="py-8">
-            <div class="border-t border-gray-200"></div>
-        </div>
-    </div>
+    <x-divider></x-divider>
+
+    @livewire('roadmap-updates', ['roadmap' => $roadmap])
+
+    <x-divider></x-divider>
 
     @livewire('roadmap-version-add',['versions' => $roadmap->roadmap_versions, 'roadmap_id' => $roadmap->id ])
 
-    <div class="hidden sm:block">
-        <div class="py-8">
-            <div class="border-t border-gray-200"></div>
-        </div>
-    </div>
+    <x-divider></x-divider>
 
     @livewire('roadmap-compliance-preview', ['roadmap_id' => $roadmap->id])
+
 </x-content>

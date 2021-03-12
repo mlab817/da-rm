@@ -43,7 +43,7 @@ class Roadmap extends Model
         return $this->belongsTo(Report::class);
     }
 
-    public function report_updates(): HasMany
+    public function roadmap_updates(): HasMany
     {
         return $this->hasMany(RoadmapUpdate::class);
     }
