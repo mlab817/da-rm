@@ -37,7 +37,7 @@
                 <tr>
                     <td class="px-4 py-2 text-sm flex-wrap text-center">{{ $item->id }}</td>
                     <td class="px-4 py-2 text-sm flex-wrap text-center">{{ $item->office->name ?? '' }}</td>
-                    <td class="px-4 py-2 text-sm flex-wrap text-center">{{ $item->commodity->name }}</td>
+                    <td class="px-4 py-2 text-sm flex-wrap text-center">{{ $item->commodity->name ?? '' }}</td>
                     <td class="px-4 py-2 text-sm flex-wrap text-center">{{ $item->start_date }}</td>
                     <td class="px-4 py-2 text-sm whitespace-nowrap text-center">
                         <a class="inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:shadow-outline-gray disabled:opacity-25 transition ease-in-out duration-150" href="{{ route('roadmaps.show', $item->id) }}">View</a>
