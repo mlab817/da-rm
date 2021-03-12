@@ -75,7 +75,7 @@
                         <div class="px-2 mt-1">
                             @foreach($commodities as $item)
                                 <label class="inline-flex items-center w-full">
-                                    <input id="commodity_id-{{ $item->id }}" class="form-check" type="checkbox" value="{{ $item->id }}" wire:model.defer="commodity_id.{{ $item->id }}" name="commodity_id">
+                                    <input class="form-check" type="checkbox" value="{{ $item->id }}" wire:model.defer="commodity_id" name="commodity_id">
                                     <span class="ml-2">{{ $item->name }}</span>
                                 </label>
                             @endforeach
