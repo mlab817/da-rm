@@ -96,7 +96,7 @@
                 </div>
                 <div class="mb-2">
                     <label for="attachment" class="py-1 text-sm font-semibold">Attachment</label>
-                    <input type="file" wire:model="attachment" id="attachment" class="w-full" accept="application/pdf">
+                    <input type="file" wire:model.defer="attachment" id="attachment" class="w-full" accept="application/pdf">
                     <p class="text-sm" wire:loading wire:target="attachment">Uploading...</p>
                     @error('attachment') <p>{{ $message }}</p> @enderror
                 </div>
