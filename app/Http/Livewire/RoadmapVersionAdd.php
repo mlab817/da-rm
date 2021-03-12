@@ -26,7 +26,7 @@ class RoadmapVersionAdd extends Component
     protected $rules = [
         'report_id' => 'required',
         'date'      => 'required',
-        'attachment'=> 'required|mimes:pdf',
+        'attachment'=> 'required|mimes:pdf|max:12288',
         'title'     => 'required',
     ];
 
