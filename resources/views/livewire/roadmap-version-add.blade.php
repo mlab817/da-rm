@@ -102,8 +102,8 @@
                 </div>
             </x-slot>
             <x-slot name="footer">
-                <x-jet-secondary-button wire:click="cancel()">Reset</x-jet-secondary-button>
-                <x-jet-button wire:click="store()">Submit</x-jet-button>
+                <x-jet-secondary-button wire:click="cancel">Reset</x-jet-secondary-button>
+                <x-jet-button wire:click="store">Submit</x-jet-button>
             </x-slot>
         </form>
     </x-jet-dialog-modal>
